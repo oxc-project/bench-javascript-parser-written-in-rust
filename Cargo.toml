@@ -1,0 +1,23 @@
+[package]
+name = "bench-parser"
+version = "0.1.0"
+edition = "2021"
+
+[dev-dependencies]
+oxc = "0.1.0"
+swc_ecma_parser = "0.137.8"
+criterion = { version = "0.4", features = ["html_reports"] }
+rayon = "1.7.0"
+mimalloc = { version = "0.1.37" }
+
+[[bench]]
+name = "parser"
+harness = false
+
+[profile.release]
+opt-level     = 3
+lto           = "fat"
+codegen-units = 1
+strip         = "symbols"
+debug         = false
+panic         = "abort"
