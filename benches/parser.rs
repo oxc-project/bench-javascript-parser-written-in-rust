@@ -8,10 +8,9 @@ static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 // cargo bench
 
 fn oxc_parse(source: &str) {
-    use oxc::{allocator::Allocator, parser::Parser, span::SourceType};
-    let allocator = Allocator::default();
-    let source_type = SourceType::default();
-    _ = Parser::new(&allocator, source, source_type).parse();
+    let allocator = oxc_allocator::Allocator::default();
+    let source_type = oxc_span::SourceType::default();
+    _ = oxc_parser::Parser::new(&allocator, source, source_type).parse();
 }
 
 fn swc_parse(source: &str) {

@@ -4,7 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dev-dependencies]
-oxc = "0.1.0"
+oxc_parser = "0.1.0"
+oxc_allocator = "0.1.0"
+oxc_span = "0.1.0"
 swc_ecma_parser = "0.137.8"
 rome_js_parser = "0.0.2"
 
