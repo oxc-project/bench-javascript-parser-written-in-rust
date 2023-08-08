@@ -111,6 +111,8 @@ dependencies = [
  "oxc_span",
  "rayon",
  "rome_js_parser",
+ "rome_js_syntax",
+ "swc_ecma_ast",
  "swc_ecma_parser",
 ]
 
