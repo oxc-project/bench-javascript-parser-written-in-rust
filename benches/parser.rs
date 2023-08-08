@@ -33,89 +33,56 @@ fn criterion_benchmark(c: &mut Criterion) {
     let mut group = c.benchmark_group(filename);
     group.throughput(Throughput::Bytes(source.len() as u64));
 
-    group.bench_with_input(
-        BenchmarkId::new("single-thread", "oxc"),
-        &source,
-        |b, source| {
-            b.iter(|| oxc_parse(source));
-        },
-    );
+    let id = "single-thread";
+    group.bench_with_input(BenchmarkId::new(id, "oxc"), &source, |b, source| {
+        b.iter(|| oxc_parse(source))
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("single-thread", "swc"),
-        &source,
-        |b, source| {
-            b.iter(|| swc_parse(source));
-        },
-    );
+    group.bench_with_input(BenchmarkId::new(id, "swc"), &source, |b, source| {
+        b.iter(|| swc_parse(source))
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("single-thread", "rome"),
-        &source,
-        |b, source| {
-            b.iter(|| rome_parse(source));
-        },
-    );
+    group.bench_with_input(BenchmarkId::new(id, "rome"), &source, |b, source| {
+        b.iter(|| rome_parse(source))
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("single-thread-no-drop", "oxc"),
-        &source,
-        |b, source| {
-            b.iter_with_large_drop(|| oxc_parse(source));
-        },
-    );
+    let id = "single-thread-no-drop";
+    group.bench_with_input(BenchmarkId::new(id, "oxc"), &source, |b, source| {
+        b.iter_with_large_drop(|| oxc_parse(source))
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("single-thread-no-drop", "swc"),
-        &source,
-        |b, source| {
-            b.iter_with_large_drop(|| swc_parse(source));
-        },
-    );
+    group.bench_with_input(BenchmarkId::new(id, "swc"), &source, |b, source| {
+        b.iter_with_large_drop(|| swc_parse(source))
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("single-thread-no-drop", "rome"),
-        &source,
-        |b, source| {
-            b.iter_with_large_drop(|| rome_parse(source));
-        },
-    );
+    group.bench_with_input(BenchmarkId::new(id, "rome"), &source, |b, source| {
+        b.iter_with_large_drop(|| rome_parse(source))
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("multi-thread", "oxc"),
-        &source,
-        |b, source| {
-            b.iter(|| {
-                (0..cpus).into_par_iter().for_each(|_| {
-                    oxc_parse(source);
-                });
+    let id = "multi-thread";
+    group.bench_with_input(BenchmarkId::new(id, "oxc"), &source, |b, source| {
+        b.iter(|| {
+            (0..cpus).into_par_iter().for_each(|_| {
+                oxc_parse(source);
             });
-        },
-    );
+        })
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("multi-thread", "swc"),
-        &source,
-        |b, source| {
-            b.iter(|| {
-                (0..cpus).into_par_iter().for_each(|_| {
-                    _ = swc_parse(source);
-                });
+    group.bench_with_input(BenchmarkId::new(id, "swc"), &source, |b, source| {
+        b.iter(|| {
+            (0..cpus).into_par_iter().for_each(|_| {
+                _ = swc_parse(source);
             });
-        },
-    );
+        });
+    });
 
-    group.bench_with_input(
-        BenchmarkId::new("multi-thread", "rome"),
-        &source,
-        |b, source| {
-            b.iter(|| {
-                (0..cpus).into_par_iter().for_each(|_| {
-                    rome_parse(source);
-                });
+    group.bench_with_input(BenchmarkId::new(id, "rome"), &source, |b, source| {
+        b.iter(|| {
+            (0..cpus).into_par_iter().for_each(|_| {
+                rome_parse(source);
             });
-        },
-    );
+        });
+    });
 
     group.finish();
 }
