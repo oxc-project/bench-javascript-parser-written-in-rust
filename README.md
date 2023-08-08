@@ -1,8 +1,10 @@
-# Benchmark for Oxc and Swc
+# Benchmark for Oxc, Swc and Rome parser
 
-The purpose of this benchmark is for people who wants to evaluate and compare the performance characteristics of the two parsers.
+The purpose of this benchmark is for people who wants to evaluate and compare the performance characteristics of these parsers.
 
 ## Run
+
+Run the following command on your machine for replication.
 
 ```bash
 cargo bench
@@ -25,6 +27,8 @@ debug         = false
 panic         = "abort"
 ```
 
+For multi-threaded environment, it uses the total number of logical cores as the total number of files to parser per bench iteration.
+
 ### Mac i7 6-core
 
 oxc performs
@@ -33,12 +37,16 @@ oxc performs
 * 3.17 times faster than swc in multi-threaded environment.
 
 ```
-group                              base
------                              ----
-typescript.js/oxc/single-thread    1.00    96.5±12.03ms    81.1 MB/sec
-typescript.js/swc/single-thread    1.00    246.5±5.05ms    31.8 MB/sec
-typescript.js/oxc/multi-thread     1.00   913.3±47.24ms     8.6 MB/sec
-typescript.js/swc/multi-thread     1.00       2.9±0.19s     2.7 MB/sec
+group                               base
+-----                               ----
+group                               base
+-----                               ----
+typescript.js/multi-thread/oxc      1.00   198.6±12.65ms    39.4 MB/sec
+typescript.js/multi-thread/rome     1.00   963.8±34.54ms     8.1 MB/sec
+typescript.js/multi-thread/swc      1.00   531.4±15.02ms    14.7 MB/sec
+typescript.js/single-thread/oxc     1.00     91.3±5.82ms    85.7 MB/sec
+typescript.js/single-thread/rome    1.00    382.0±8.11ms    20.5 MB/sec
+typescript.js/single-thread/swc     1.00   245.2±37.59ms    31.9 MB/sec
 ```
 
 <img src="./violin.svg">

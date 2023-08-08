@@ -6,9 +6,12 @@ edition = "2021"
 [dev-dependencies]
 oxc = "0.1.0"
 swc_ecma_parser = "0.137.8"
+rome_js_parser = "0.0.2"
+
+num_cpus = "1.16.0"
 criterion = { version = "0.4", features = ["html_reports"] }
 rayon = "1.7.0"
-mimalloc = { version = "0.1.37" }
+mimalloc = "0.1.37"
 
 [[bench]]
 name = "parser"

@@ -7,33 +7,38 @@ static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 // wget https://cdn.jsdelivr.net/npm/typescript@5.1.6/lib/typescript.js
 // cargo bench
 
-fn oxc_parse(source_text: &str) {
+fn oxc_parse(source: &str) {
     use oxc::{allocator::Allocator, parser::Parser, span::SourceType};
     let allocator = Allocator::default();
     let source_type = SourceType::default();
-    Parser::new(&allocator, source_text, source_type).parse();
+    _ = Parser::new(&allocator, source, source_type).parse();
 }
 
-fn swc_parse(source_text: &str) {
+fn swc_parse(source: &str) {
     use swc_ecma_parser::{Parser, StringInput, Syntax};
     _ = Parser::new(
         Syntax::Es(Default::default()),
-        StringInput::new(source_text, Default::default(), Default::default()),
+        StringInput::new(source, Default::default(), Default::default()),
         None,
     )
     .parse_module();
 }
 
+fn rome_parse(source: &str) {
+    _ = rome_js_parser::parse_module(source);
+}
+
 fn criterion_benchmark(c: &mut Criterion) {
+    let cpus = num_cpus::get();
+
     let filename = "typescript.js";
     let source = std::fs::read_to_string(filename).unwrap();
 
     let mut group = c.benchmark_group(filename);
-    group.sample_size(30);
     group.throughput(Throughput::Bytes(source.len() as u64));
 
     group.bench_with_input(
-        BenchmarkId::new("oxc", "single-thread"),
+        BenchmarkId::new("single-thread", "oxc"),
         &source,
         |b, source| {
             b.iter(|| oxc_parse(source));
@@ -41,7 +46,7 @@ fn criterion_benchmark(c: &mut Criterion) {
     );
 
     group.bench_with_input(
-        BenchmarkId::new("swc", "single-thread"),
+        BenchmarkId::new("single-thread", "swc"),
         &source,
         |b, source| {
             b.iter(|| swc_parse(source));
@@ -49,21 +54,39 @@ fn criterion_benchmark(c: &mut Criterion) {
     );
 
     group.bench_with_input(
-        BenchmarkId::new("oxc", "multi-thread"),
+        BenchmarkId::new("single-thread", "rome"),
+        &source,
+        |b, source| {
+            b.iter(|| rome_parse(source));
+        },
+    );
+
+    group.bench_with_input(
+        BenchmarkId::new("multi-thread", "oxc"),
         &source,
         |b, source| {
             b.iter(|| {
-                (0..50).into_par_iter().for_each(|_| oxc_parse(source));
+                (0..cpus).into_par_iter().for_each(|_| oxc_parse(source));
             });
         },
     );
 
     group.bench_with_input(
-        BenchmarkId::new("swc", "multi-thread"),
+        BenchmarkId::new("multi-thread", "swc"),
         &source,
         |b, source| {
             b.iter(|| {
-                (0..50).into_par_iter().for_each(|_| swc_parse(source));
+                (0..cpus).into_par_iter().for_each(|_| swc_parse(source));
+            });
+        },
+    );
+
+    group.bench_with_input(
+        BenchmarkId::new("multi-thread", "rome"),
+        &source,
+        |b, source| {
+            b.iter(|| {
+                (0..cpus).into_par_iter().for_each(|_| rome_parse(source));
             });
         },
     );
