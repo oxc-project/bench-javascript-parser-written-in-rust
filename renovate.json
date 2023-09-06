@@ -3,5 +3,19 @@
   "extends": [
     "config:base"
   ],
-  "automerge": true
+  "automerge": true,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["oxc"],
+      "groupName": "oxc"
+    },
+    {
+      "matchPackagePatterns": ["swc"],
+      "groupName": "swc"
+    },
+    {
+      "matchPackagePatterns": ["rome"],
+      "groupName": "rome"
+    }
+  ]
 }
