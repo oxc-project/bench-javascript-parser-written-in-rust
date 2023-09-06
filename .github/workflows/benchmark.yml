@@ -1,0 +1,39 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - '**/*.rs'
+      - 'Cargo.lock'
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.rs'
+      - 'Cargo.lock'
+
+jobs:
+  benchmark:
+    name: Benchmark
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v3
+
+      - name: Setup rust toolchain, cache and cargo-codspeed binary
+        uses: moonrepo/setup-rust@v0
+        with:
+          channel: stable
+          cache-target: release
+          bins: cargo-codspeed
+
+      - name: Build Benchmark
+        run: cargo codspeed build --features codspeed
+
+      - name: Run benchmark
+        uses: CodSpeedHQ/action@v1
+        with:
+          run: cargo codspeed run
+          token: ${{ secrets.CODSPEED_TOKEN }}

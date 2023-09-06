@@ -2,8 +2,9 @@
 name = "bench-parser"
 version = "0.1.0"
 edition = "2021"
+publish = false
 
-[dev-dependencies]
+[dependencies]
 oxc_parser = "0.1.1"
 oxc_allocator = "0.1.1"
 oxc_span = "0.1.1"
@@ -16,6 +17,10 @@ num_cpus = "1.16.0"
 criterion = { version = "0.4" }
 rayon = "1.7.0"
 mimalloc = "0.1.38"
+codspeed-criterion-compat = { version = "2.2.0", default-features = false, optional = true }
+
+[features]
+codspeed = ["codspeed-criterion-compat"]
 
 [[bench]]
 name = "parser"

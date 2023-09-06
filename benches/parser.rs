@@ -1,7 +1,9 @@
-use criterion::{
-    criterion_group, criterion_main, measurement::Measurement, BenchmarkGroup, BenchmarkId,
-    Criterion,
-};
+#[cfg(not(codspeed))]
+pub use criterion::*;
+
+#[cfg(codspeed)]
+pub use codspeed_criterion_compat::*;
+
 use rayon::prelude::*;
 
 #[global_allocator]
@@ -14,17 +16,19 @@ trait Bencher {
 
     fn parse(source: &str) -> Self::ParseOutput;
 
-    fn bench<T: Measurement>(group: &mut BenchmarkGroup<T>, source: &str) {
+    fn bench(c: &mut Criterion, filename: &str, source: &str) {
+        let mut group = c.benchmark_group(Self::ID);
+
         let cpus = num_cpus::get_physical();
-        let id = BenchmarkId::new(Self::ID, "single-thread");
+        let id = BenchmarkId::new(filename, "single-thread");
         group.bench_with_input(id, &source, |b, source| b.iter(|| Self::parse(source)));
 
-        let id = BenchmarkId::new(Self::ID, "no-drop");
+        let id = BenchmarkId::new(filename, "no-drop");
         group.bench_with_input(id, &source, |b, source| {
             b.iter_with_large_drop(|| Self::parse(source))
         });
 
-        let id = BenchmarkId::new(Self::ID, "parallel");
+        let id = BenchmarkId::new(filename, "parallel");
         group.bench_with_input(id, &source, |b, source| {
             b.iter(|| {
                 (0..cpus).into_par_iter().for_each(|_| {
@@ -32,6 +36,8 @@ trait Bencher {
                 });
             })
         });
+
+        group.finish();
     }
 }
 
@@ -80,19 +86,15 @@ impl Bencher for RomeBencher {
     }
 }
 
-fn criterion_benchmark(c: &mut Criterion) {
+fn parser_benchmark(c: &mut Criterion) {
     let filename = "typescript.js";
 
     let source = std::fs::read_to_string(filename).unwrap();
 
-    let mut group = c.benchmark_group(filename);
-
-    OxcBencher::bench(&mut group, &source);
-    SwcBencher::bench(&mut group, &source);
-    RomeBencher::bench(&mut group, &source);
-
-    group.finish();
+    OxcBencher::bench(c, filename, &source);
+    SwcBencher::bench(c, filename, &source);
+    RomeBencher::bench(c, filename, &source);
 }
 
-criterion_group!(benches, criterion_benchmark);
-criterion_main!(benches);
+criterion_group!(parser, parser_benchmark);
+criterion_main!(parser);
