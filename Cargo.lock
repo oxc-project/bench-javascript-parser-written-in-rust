@@ -517,6 +517,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "is_ci"
+version = "1.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "616cde7c720bb2bb5824a224687d8f77bfd38922027f01d825cd7453be5099fb"
+
+[[package]]
 name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -614,8 +620,15 @@ version = "5.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "59bb584eaeeab6bd0226ccf3509a69d7936d148cf3d036ad350abe35e8c6856e"
 dependencies = [
+ "is-terminal",
  "miette-derive",
  "once_cell",
+ "owo-colors",
+ "supports-color",
+ "supports-hyperlinks",
+ "supports-unicode",
+ "terminal_size",
+ "textwrap",
  "thiserror",
  "unicode-width",
 ]
@@ -725,9 +738,9 @@ checksum = "c1b04fb49957986fdce4d6ee7a65027d55d4b6d2265e5848bbb507b58ccfdb6f"
 
 [[package]]
 name = "oxc_allocator"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "065bc0cd501995c01165680f5aeecb55566769bce7a5fade959dda14d2cc2e19"
+checksum = "8adb4866d047b6d36c5f79cf79978202dfe26b66aae30231cb87b799a11a4578"
 dependencies = [
  "bumpalo",
  "serde",
@@ -735,9 +748,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_ast"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f39c443edb8232a58a0864024b652d3b68c5adbad3fcd9c39c449a4156b1e51"
+checksum = "014330a6787f120ac6bdcbf3b18ea04ddbcdcf2b498158ec8b17c57293b6cb88"
 dependencies = [
  "bitflags 2.4.0",
  "num-bigint",
@@ -750,9 +763,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_diagnostics"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "396e7353cc536d62bca994161c919c6cb5b74da7b56e844d02a2601654d22735"
+checksum = "0406dc61e120150bd9eec91a173f28877aef514586d79356ef681ef08fcd14da"
 dependencies = [
  "is-terminal",
  "miette",
@@ -764,9 +777,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_index"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8914278fc5e0c4ac377c039d7bfb73df221049c4693bd9c7c515e6cb3562fc0"
+checksum = "2f905e208988439c14e4923466d188d839e98f86bd8e062eeda1225137c37f26"
 dependencies = [
  "index_vec",
  "static_assertions",
@@ -774,9 +787,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_parser"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0ac2f8f1481e43d2f2ff8372df96e283677aa0fb40a5ec47b1b17a34d1aa9643"
+checksum = "59eaee1fc40f13685b94d56b840ffcdfd8b2d07787a505abf93c62bad7e1936a"
 dependencies = [
  "bitflags 2.4.0",
  "num-bigint",
@@ -791,9 +804,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_span"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d0df61c98f59c6152fae2968c40a38233a80c62c244b1ff203f02d9c606cb921"
+checksum = "657bbc6dd98fd392121ceec2e5b04c25c5f9c68af3feb9863736864baad05fda"
 dependencies = [
  "compact_str",
  "miette",
@@ -801,9 +814,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_syntax"
-version = "0.1.1"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "51ab9feb00d2d92a6044b5563e89eb5602a960e945395e059fef655662d03d8b"
+checksum = "cbe4e5a647fff77cb56fd08cdad1699a24bced78803ba07e9c570ef2ae755a9f"
 dependencies = [
  "bitflags 2.4.0",
  "oxc_index",
@@ -1460,6 +1473,34 @@ dependencies = [
 ]
 
 [[package]]
+name = "supports-color"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4950e7174bffabe99455511c39707310e7e9b440364a2fcb1cc21521be57b354"
+dependencies = [
+ "is-terminal",
+ "is_ci",
+]
+
+[[package]]
+name = "supports-hyperlinks"
+version = "2.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f84231692eb0d4d41e4cdd0cabfdd2e6cd9e255e65f80c9aa7c98dd502b4233d"
+dependencies = [
+ "is-terminal",
+]
+
+[[package]]
+name = "supports-unicode"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4b6c2cb240ab5dd21ed4906895ee23fe5a48acdbd15a3ce388e7b62a9b66baf7"
+dependencies = [
+ "is-terminal",
+]
+
+[[package]]
 name = "swc_atoms"
 version = "0.5.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1612,6 +1653,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "be55cf8942feac5c765c2c993422806843c9a9a45d4d5c407ad6dd2ea95eb9b6"
 dependencies = [
  "winapi-util",
+]
+
+[[package]]
+name = "terminal_size"
+version = "0.1.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "633c1a546cee861a1a6d0dc69ebeca693bf4296661ba7852b9d21d159e0506df"
+dependencies = [
+ "libc",
+ "winapi",
 ]
 
 [[package]]
