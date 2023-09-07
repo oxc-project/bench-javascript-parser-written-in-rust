@@ -1,21 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
   "automerge": true,
   "packageRules": [
     {
       "matchPackagePatterns": ["oxc"],
-      "groupName": "oxc"
+      "groupName": "oxc",
+      "automerge": true
     },
     {
       "matchPackagePatterns": ["swc"],
-      "groupName": "swc"
+      "groupName": "swc",
+      "automerge": true
     },
     {
       "matchPackagePatterns": ["rome"],
-      "groupName": "rome"
+      "groupName": "rome",
+      "automerge": true
     }
   ]
 }
