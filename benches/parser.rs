@@ -1,8 +1,8 @@
 #[cfg(not(codspeed))]
-pub use criterion::*;
+pub use criterion::{measurement::*, *};
 
 #[cfg(codspeed)]
-pub use codspeed_criterion_compat::*;
+pub use codspeed_criterion_compat::{measurement::*, *};
 
 use rayon::prelude::*;
 
@@ -16,28 +16,24 @@ trait Bencher {
 
     fn parse(source: &str) -> Self::ParseOutput;
 
-    fn bench(c: &mut Criterion, filename: &str, source: &str) {
-        let mut group = c.benchmark_group(Self::ID);
-
+    fn bench(g: &mut BenchmarkGroup, source: &str) {
         let cpus = num_cpus::get_physical();
-        let id = BenchmarkId::new(filename, "single-thread");
-        group.bench_with_input(id, &source, |b, source| b.iter(|| Self::parse(source)));
+        let id = BenchmarkId::new(Self::ID, "single-thread");
+        g.bench_with_input(id, &source, |b, source| b.iter(|| Self::parse(source)));
 
-        let id = BenchmarkId::new(filename, "no-drop");
-        group.bench_with_input(id, &source, |b, source| {
+        let id = BenchmarkId::new(Self::ID, "no-drop");
+        g.bench_with_input(id, &source, |b, source| {
             b.iter_with_large_drop(|| Self::parse(source))
         });
 
-        let id = BenchmarkId::new(filename, "parallel");
-        group.bench_with_input(id, &source, |b, source| {
+        let id = BenchmarkId::new(Self::ID, "parallel");
+        g.bench_with_input(id, &source, |b, source| {
             b.iter(|| {
                 (0..cpus).into_par_iter().for_each(|_| {
                     Self::parse(source);
                 });
             })
         });
-
-        group.finish();
     }
 }
 
@@ -88,12 +84,13 @@ impl Bencher for RomeBencher {
 
 fn parser_benchmark(c: &mut Criterion) {
     let filename = "typescript.js";
-
     let source = std::fs::read_to_string(filename).unwrap();
 
-    OxcBencher::bench(c, filename, &source);
-    SwcBencher::bench(c, filename, &source);
-    RomeBencher::bench(c, filename, &source);
+    let mut g = c.benchmark_group(filename);
+    OxcBencher::bench(&mut g, &source);
+    SwcBencher::bench(&mut g, &source);
+    RomeBencher::bench(&mut g, &source);
+    g.finish();
 }
 
 criterion_group!(parser, parser_benchmark);
