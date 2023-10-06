@@ -8,8 +8,8 @@ publish = false
 oxc_parser = "0.2.0"
 oxc_allocator = "0.2.0"
 oxc_span = "0.2.0"
-swc_ecma_parser = "0.140.0"
-swc_ecma_ast = "0.109.1"
+swc_ecma_parser = "0.140.1"
+swc_ecma_ast = "0.109.2"
 rome_js_parser = "0.0.2"
 rome_js_syntax = "0.0.2"
 
