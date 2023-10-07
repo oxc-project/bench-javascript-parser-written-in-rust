@@ -7,12 +7,14 @@ on:
     paths:
       - '**/*.rs'
       - 'Cargo.lock'
+      - 'rust-toolchain.toml'
   push:
     branches:
       - main
     paths:
       - '**/*.rs'
       - 'Cargo.lock'
+      - 'rust-toolchain.toml'
 
 jobs:
   benchmark:
