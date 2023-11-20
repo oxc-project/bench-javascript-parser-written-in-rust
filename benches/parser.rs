@@ -16,7 +16,7 @@ trait Bencher {
 
     fn parse(source: &str) -> Self::ParseOutput;
 
-    fn bench(g: &mut BenchmarkGroup, source: &str) {
+    fn bench(g: &mut BenchmarkGroup<'_, WallTime>, source: &str) {
         let cpus = num_cpus::get_physical();
         let id = BenchmarkId::new(Self::ID, "single-thread");
         g.bench_with_input(id, &source, |b, source| b.iter(|| Self::parse(source)));
