@@ -5,9 +5,9 @@ edition = "2021"
 publish = false
 
 [dependencies]
-oxc_parser = "0.3.0"
-oxc_allocator = "0.3.0"
-oxc_span = "0.3.0"
+oxc_parser = "0.4.0"
+oxc_allocator = "0.4.0"
+oxc_span = "0.4.0"
 swc_ecma_parser = "0.141.32"
 swc_ecma_ast = "0.110.14"
 rome_js_parser = "0.0.2"
