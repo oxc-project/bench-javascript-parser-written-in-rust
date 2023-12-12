@@ -35,7 +35,7 @@ jobs:
         run: cargo codspeed build --features codspeed
 
       - name: Run benchmark
-        uses: CodSpeedHQ/action@v1
+        uses: CodSpeedHQ/action@v2
         with:
           run: cargo codspeed run
           token: ${{ secrets.CODSPEED_TOKEN }}
