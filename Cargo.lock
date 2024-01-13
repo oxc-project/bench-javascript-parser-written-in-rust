@@ -61,17 +61,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "atty"
-version = "0.2.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8"
-dependencies = [
- "hermit-abi 0.1.19",
- "libc",
- "winapi",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -96,16 +85,14 @@ dependencies = [
 name = "bench-parser"
 version = "0.1.0"
 dependencies = [
+ "biome_js_parser",
+ "biome_js_syntax",
  "codspeed-criterion-compat",
  "criterion",
  "mimalloc",
  "num_cpus",
- "oxc_allocator",
- "oxc_parser",
- "oxc_span",
+ "oxc",
  "rayon",
- "rome_js_parser",
- "rome_js_syntax",
  "swc_ecma_ast",
  "swc_ecma_parser",
 ]
@@ -120,6 +107,170 @@ dependencies = [
 ]
 
 [[package]]
+name = "biome_console"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e06770dd170a0a946e158299dd5b586b1c74395a5e83abecf21a698caf0c3c3"
+dependencies = [
+ "biome_markup",
+ "biome_text_size",
+ "schemars",
+ "serde",
+ "termcolor",
+ "unicode-width",
+]
+
+[[package]]
+name = "biome_diagnostics"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "22249d2595504131f2d341c5599c0f070aeeac27b287442ec2eb17c7d64ceda7"
+dependencies = [
+ "backtrace",
+ "biome_console",
+ "biome_diagnostics_categories",
+ "biome_diagnostics_macros",
+ "biome_rowan",
+ "biome_text_edit",
+ "biome_text_size",
+ "bitflags 2.4.1",
+ "bpaf",
+ "serde",
+ "termcolor",
+ "unicode-width",
+]
+
+[[package]]
+name = "biome_diagnostics_categories"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "40bef2538ef9f1114430f230f2a3a5c1b8a68efa30edd7dffe70a205bdee6bc2"
+dependencies = [
+ "quote",
+ "serde",
+]
+
+[[package]]
+name = "biome_diagnostics_macros"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4ed9c16de38fd90f67d8282c55437f15c600db1ef257d7c64e5dedf9e893940a"
+dependencies = [
+ "proc-macro-error",
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+]
+
+[[package]]
+name = "biome_js_factory"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b3136fe5a631d06d5abf77921f0aa782c9ee5f135b8501755f8e8350631dfb7f"
+dependencies = [
+ "biome_js_syntax",
+ "biome_rowan",
+]
+
+[[package]]
+name = "biome_js_parser"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59c0b1799f891a5ab5abf31514ed2fd07bb07d330070e29e4de1bd293e465438"
+dependencies = [
+ "biome_console",
+ "biome_diagnostics",
+ "biome_js_factory",
+ "biome_js_syntax",
+ "biome_js_unicode_table",
+ "biome_parser",
+ "biome_rowan",
+ "bitflags 2.4.1",
+ "cfg-if",
+ "drop_bomb",
+ "indexmap 1.9.3",
+ "serde",
+ "serde_json",
+ "smallvec",
+ "tracing",
+]
+
+[[package]]
+name = "biome_js_syntax"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9123228b4618aade47e5163de5230dc823f634687dc9f4af0b58611c0b123a98"
+dependencies = [
+ "biome_console",
+ "biome_diagnostics",
+ "biome_rowan",
+]
+
+[[package]]
+name = "biome_js_unicode_table"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8824deb43583bf10c1fda78c801936a9e94cc5f3d189f3ef158cdfc1f7e357a5"
+
+[[package]]
+name = "biome_markup"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "90951c10877cf69922c3a7ed960aaa5062a84d3faa9373845e326b881d065254"
+dependencies = [
+ "proc-macro-error",
+ "proc-macro2",
+ "quote",
+]
+
+[[package]]
+name = "biome_parser"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e105f18a01eaf94d8c5dee01d24bdf73c08d11d2536641fec862fdb4e188a37b"
+dependencies = [
+ "biome_console",
+ "biome_diagnostics",
+ "biome_rowan",
+ "drop_bomb",
+]
+
+[[package]]
+name = "biome_rowan"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ee6eda8f80e98d200bff438feb28e209aefffbaac1e9e3cedb367c1ea435e93a"
+dependencies = [
+ "biome_text_edit",
+ "biome_text_size",
+ "countme",
+ "hashbrown 0.12.3",
+ "memoffset 0.8.0",
+ "rustc-hash",
+ "tracing",
+]
+
+[[package]]
+name = "biome_text_edit"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "042c3850b030b827e715d5b3c200147af29bd6a7c80d9296aa9552d74c5ff6c7"
+dependencies = [
+ "biome_text_size",
+ "serde",
+ "similar",
+]
+
+[[package]]
+name = "biome_text_size"
+version = "0.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8f3912177d21e228cca279e30b2e8ca7ba02cd29dcd335aaa283de680c36d619"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "bitflags"
 version = "1.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -130,6 +281,26 @@ name = "bitflags"
 version = "2.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "327762f6e5a765692301e5bb513e0d9fef63be86bbc14528052b1cd3e6f03e07"
+
+[[package]]
+name = "bpaf"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "19232d7d855392d993f6dabd8dea40a457a6d24ef679fe98f5edca811bb11e21"
+dependencies = [
+ "bpaf_derive",
+]
+
+[[package]]
+name = "bpaf_derive"
+version = "0.5.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "efeab2975f8102de445dcf898856a638332403c50216144653a89aec22fd79e0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.48",
+]
 
 [[package]]
 name = "bstr"
@@ -455,15 +626,6 @@ checksum = "f93e7192158dbcda357bdec5fb5788eebf8bbac027f3f33e719d29135ae84156"
 
 [[package]]
 name = "hermit-abi"
-version = "0.1.19"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "62b467343b94ba476dcb2500d242dadbb39557df889310ac77c5d99100aaac33"
-dependencies = [
- "libc",
-]
-
-[[package]]
-name = "hermit-abi"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "443144c8cdadd93ebf52ddb4056d257f5b52c04d3c804e657d19eb73fc33668b"
@@ -536,7 +698,7 @@ version = "0.4.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0bad00257d07be169d870ab665980b06cdb366d792ad690bf2e76876dc503455"
 dependencies = [
- "hermit-abi 0.3.2",
+ "hermit-abi",
  "rustix",
  "windows-sys 0.52.0",
 ]
@@ -730,7 +892,7 @@ version = "1.16.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4161fcb6d602d4d2081af7c3a45852d875a03dd337a6bfdd6e06407b61342a43"
 dependencies = [
- "hermit-abi 0.3.2",
+ "hermit-abi",
  "libc",
 ]
 
@@ -760,6 +922,21 @@ name = "owo-colors"
 version = "3.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c1b04fb49957986fdce4d6ee7a65027d55d4b6d2265e5848bbb507b58ccfdb6f"
+
+[[package]]
+name = "oxc"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "78e0fb86e8840c5f929a65744fc995b3267dd0b569219bf977568c2f6f8592d9"
+dependencies = [
+ "oxc_allocator",
+ "oxc_ast",
+ "oxc_diagnostics",
+ "oxc_index",
+ "oxc_parser",
+ "oxc_span",
+ "oxc_syntax",
+]
 
 [[package]]
 name = "oxc_allocator"
@@ -913,12 +1090,6 @@ checksum = "90fcb95eef784c2ac79119d1dd819e162b5da872ce6f3c3abe1e8ca1c082f72b"
 dependencies = [
  "siphasher",
 ]
-
-[[package]]
-name = "pico-args"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5be167a7af36ee22fe3115051bc51f6e6c7054c9348e28deb4f49bd6f705a315"
 
 [[package]]
 name = "pin-project-lite"
@@ -1093,169 +1264,6 @@ name = "regex-syntax"
 version = "0.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5ea92a5b6195c6ef2a0295ea818b312502c6fc94dde986c5553242e18fd4ce2"
-
-[[package]]
-name = "rome_console"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "219dce5ca93a15fa88996b449436ae3bdc74420daa91d5091cf9616215a75653"
-dependencies = [
- "atty",
- "rome_markup",
- "rome_text_size",
- "schemars",
- "serde",
- "termcolor",
- "unicode-width",
-]
-
-[[package]]
-name = "rome_diagnostics"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a2d9edb8434ebf3b807f58c54cde01229a6b445836191ff7bfd08926823163d9"
-dependencies = [
- "backtrace",
- "bitflags 1.3.2",
- "pico-args",
- "rome_console",
- "rome_diagnostics_categories",
- "rome_diagnostics_macros",
- "rome_rowan",
- "rome_text_edit",
- "rome_text_size",
- "serde",
- "termcolor",
- "unicode-width",
-]
-
-[[package]]
-name = "rome_diagnostics_categories"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fd97cd7cfa1bb6e8d0c3dcdd490a37107cc9c87f3c0b5e832aa4a47dc9c0fa5b"
-dependencies = [
- "quote",
- "serde",
-]
-
-[[package]]
-name = "rome_diagnostics_macros"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d83e4826d051453eccb48f1250b6686f6c2856e5bf4e050cd9f504beaff23a91"
-dependencies = [
- "proc-macro-error",
- "proc-macro2",
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "rome_js_factory"
-version = "0.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a109fd33f2f9e0682815e868daa37edd349fbd6dbc6fe17b21cdb16f2f3afa02"
-dependencies = [
- "rome_js_syntax",
- "rome_rowan",
-]
-
-[[package]]
-name = "rome_js_parser"
-version = "0.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5970b4353a494a9d6ea0b8d4aa6bddf35969af30a211f4b9279800edcc429456"
-dependencies = [
- "bitflags 1.3.2",
- "cfg-if",
- "drop_bomb",
- "indexmap 1.9.3",
- "rome_console",
- "rome_diagnostics",
- "rome_js_factory",
- "rome_js_syntax",
- "rome_js_unicode_table",
- "rome_parser",
- "rome_rowan",
- "smallvec",
- "tracing",
-]
-
-[[package]]
-name = "rome_js_syntax"
-version = "0.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "846a59897b4efbed71291e672e9493ba94e324cdea7b1de20bcf1a6a0192b18e"
-dependencies = [
- "rome_console",
- "rome_diagnostics",
- "rome_rowan",
-]
-
-[[package]]
-name = "rome_js_unicode_table"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4c1af6dd608616845e04b0f3bf293b2b0a31ea955bd9291e7275a2824185ba7d"
-
-[[package]]
-name = "rome_markup"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e55ee3bf8452f29f0b358c873a68a5607ed16293855e4d480407e00bb8b93ac1"
-dependencies = [
- "proc-macro-error",
- "proc-macro2",
- "quote",
-]
-
-[[package]]
-name = "rome_parser"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "641dfe59d9176d7dce4bf77b6214691f8da74efd4846b6503cc8de499b38dea5"
-dependencies = [
- "drop_bomb",
- "rome_console",
- "rome_diagnostics",
- "rome_rowan",
-]
-
-[[package]]
-name = "rome_rowan"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "033d926a669a4b16bcd47a2c4ebbf69c7f59959e9a6a9c21155dea035f45686e"
-dependencies = [
- "countme",
- "hashbrown 0.12.3",
- "memoffset 0.8.0",
- "rome_text_edit",
- "rome_text_size",
- "rustc-hash",
- "tracing",
-]
-
-[[package]]
-name = "rome_text_edit"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "990c0736f9353a4d2c374668e2a3c58fd4f5d581785c946313768c005d2da3f7"
-dependencies = [
- "rome_text_size",
- "serde",
- "similar",
-]
-
-[[package]]
-name = "rome_text_size"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "34bc95f523391df6dc37fc326d6fc892c80819a5f96457dc286f98ae3983691c"
-dependencies = [
- "serde",
-]
 
 [[package]]
 name = "rustc-demangle"
