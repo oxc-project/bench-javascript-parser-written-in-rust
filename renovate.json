@@ -13,8 +13,8 @@
       "automerge": true
     },
     {
-      "matchPackagePatterns": ["rome"],
-      "groupName": "rome",
+      "matchPackagePatterns": ["biome"],
+      "groupName": "biome",
       "automerge": true
     }
   ]

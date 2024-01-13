@@ -1,4 +1,4 @@
-# Benchmark for Oxc, Swc and Rome parser
+# Benchmark for Oxc, Swc and Biome parser
 
 The purpose of this benchmark is for people who wants to evaluate and compare the performance characteristics of these parsers.
 
@@ -9,7 +9,7 @@ The purpose of this benchmark is for people who wants to evaluate and compare th
 <img src="./bar-graph1.svg">
 
 
-|                     | `oxc`                    | `swc`                            | `rome`                            |
+|                     | `oxc`                    | `swc`                            | `Biome`                            |
 |:--------------------|:-------------------------|:---------------------------------|:--------------------------------- |
 | **`single-thread`** | `55.86 ms` (**1.00x**)   | `108.68 ms` (*1.95x slower*)     | `168.88 ms` (*3.02x slower*)      |
 | **`no-drop`**       | `56.17 ms` (**1.00x**)   | `101.47 ms` (*1.81x slower*)     | `159.46 ms` (*2.84x slower*)      |
