@@ -5,13 +5,11 @@ edition = "2021"
 publish = false
 
 [dependencies]
-oxc_parser = "0.5.0"
-oxc_allocator = "0.5.0"
-oxc_span = "0.5.0"
+oxc = "0.5.0"
 swc_ecma_parser = "0.141.37"
 swc_ecma_ast = "0.110.17"
-rome_js_parser = "0.0.2"
-rome_js_syntax = "0.0.2"
+biome_js_parser = "0.0.2"
+biome_js_syntax = "0.0.2"
 
 num_cpus = "1.16.0"
 criterion = { version = "0.5" }

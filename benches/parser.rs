@@ -1,15 +1,15 @@
 #[cfg(not(codspeed))]
-pub use criterion::{measurement::*, *};
+pub use criterion::{measurement::WallTime, *};
 
 #[cfg(codspeed)]
-pub use codspeed_criterion_compat::{measurement::*, *};
+pub use codspeed_criterion_compat::{measurement::WallTime, *};
 
 use rayon::prelude::*;
 
 #[global_allocator]
 static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
-trait Bencher {
+trait TheBencher {
     type ParseOutput;
 
     const ID: &'static str;
@@ -39,22 +39,22 @@ trait Bencher {
 
 struct OxcBencher;
 
-impl Bencher for OxcBencher {
-    type ParseOutput = oxc_allocator::Allocator;
+impl TheBencher for OxcBencher {
+    type ParseOutput = oxc::allocator::Allocator;
 
     const ID: &'static str = "oxc";
 
     fn parse(source: &str) -> Self::ParseOutput {
-        let allocator = oxc_allocator::Allocator::default();
-        let source_type = oxc_span::SourceType::default();
-        _ = oxc_parser::Parser::new(&allocator, source, source_type).parse();
+        let allocator = oxc::allocator::Allocator::default();
+        let source_type = oxc::span::SourceType::default();
+        _ = oxc::parser::Parser::new(&allocator, source, source_type).parse();
         allocator
     }
 }
 
 struct SwcBencher;
 
-impl Bencher for SwcBencher {
+impl TheBencher for SwcBencher {
     type ParseOutput = swc_ecma_parser::PResult<swc_ecma_ast::Module>;
 
     const ID: &'static str = "swc";
@@ -70,15 +70,15 @@ impl Bencher for SwcBencher {
     }
 }
 
-struct RomeBencher;
+struct BiomeBencher;
 
-impl Bencher for RomeBencher {
-    type ParseOutput = rome_js_parser::Parse<rome_js_syntax::JsModule>;
+impl TheBencher for BiomeBencher {
+    type ParseOutput = biome_js_parser::Parse<biome_js_syntax::JsModule>;
 
-    const ID: &'static str = "rome";
+    const ID: &'static str = "biome";
 
     fn parse(source: &str) -> Self::ParseOutput {
-        rome_js_parser::parse_module(source)
+        biome_js_parser::parse_module(source, biome_js_parser::JsParserOptions::default())
     }
 }
 
@@ -89,7 +89,7 @@ fn parser_benchmark(c: &mut Criterion) {
     let mut g = c.benchmark_group(filename);
     OxcBencher::bench(&mut g, &source);
     SwcBencher::bench(&mut g, &source);
-    RomeBencher::bench(&mut g, &source);
+    BiomeBencher::bench(&mut g, &source);
     g.finish();
 }
 
