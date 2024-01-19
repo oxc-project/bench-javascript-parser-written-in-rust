@@ -13,6 +13,8 @@ The purpose of this benchmark is for people who wants to evaluate and compare th
 
 ### Mac M2 8 cores
 
+<img src="./bar-graph.svg">
+
 |                     | `oxc`                    | `swc`                            | `biome`                           |
 |:--------------------|:-------------------------|:---------------------------------|:--------------------------------- |
 | **`single-thread`** | `49.79 ms` (✅ **1.00x**) | `104.17 ms` (❌ *2.09x slower*)   | `167.76 ms` (❌ *3.37x slower*)    |
@@ -69,13 +71,15 @@ Run the following command on your machine for replication.
 cargo bench
 ```
 
-To generate the table
+Generate the table
 
 ```bash
 cargo install cargo-criterion
 cargo install criterion-table
 cargo criterion --message-format=json | criterion-table > BENCHMARKS.md
 ```
+
+Generate the bar graph: https://www.rapidtables.com/tools/bar-graph.html
 
 ## Input
 
