@@ -9,11 +9,11 @@
 
 ### typescript.js
 
-|                     | `oxc`                    | `swc`                            | `Biome`                            |
+|                     | `oxc`                    | `swc`                            | `biome`                           |
 |:--------------------|:-------------------------|:---------------------------------|:--------------------------------- |
-| **`single-thread`** | `55.86 ms` (✅ **1.00x**) | `108.68 ms` (❌ *1.95x slower*)   | `168.88 ms` (❌ *3.02x slower*)    |
-| **`no-drop`**       | `56.17 ms` (✅ **1.00x**) | `101.47 ms` (❌ *1.81x slower*)   | `159.46 ms` (❌ *2.84x slower*)    |
-| **`parallel`**      | `90.12 ms` (✅ **1.00x**) | `180.26 ms` (❌ *2.00x slower*)   | `315.39 ms` (❌ *3.50x slower*)    |
+| **`single-thread`** | `49.79 ms` (✅ **1.00x**) | `104.17 ms` (❌ *2.09x slower*)   | `167.76 ms` (❌ *3.37x slower*)    |
+| **`no-drop`**       | `49.97 ms` (✅ **1.00x**) | `97.29 ms` (❌ *1.95x slower*)    | `159.32 ms` (❌ *3.19x slower*)    |
+| **`parallel`**      | `88.36 ms` (✅ **1.00x**) | `181.59 ms` (❌ *2.06x slower*)   | `330.30 ms` (❌ *3.74x slower*)    |
 
 ---
 Made with [criterion-table](https://github.com/nu11ptr/criterion-table)
