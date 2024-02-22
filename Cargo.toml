@@ -6,8 +6,8 @@ publish = false
 
 [dependencies]
 oxc = "0.7.0"
-swc_ecma_parser = "0.143.3"
-swc_ecma_ast = "0.112.2"
+swc_ecma_parser = "0.143.5"
+swc_ecma_ast = "0.112.4"
 biome_js_parser = "0.4.0"
 biome_js_syntax = "0.4.0"
 
