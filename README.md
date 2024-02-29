@@ -11,6 +11,8 @@ The purpose of this benchmark is for people who wants to evaluate and compare th
 [codspeed-badge]: https://img.shields.io/endpoint?url=https://codspeed.io/badge.json
 [codspeed-url]: https://codspeed.io/oxc-project/bench-javascript-parser-written-in-rust/benchmarks
 
+Codspeed measures performance by cpu instructions. The numbers indicate that Oxc is 3x faster than Swc."
+
 ### Mac M2 8 cores
 
 <img src="./bar-graph.svg">
