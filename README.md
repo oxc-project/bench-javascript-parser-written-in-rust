@@ -2,6 +2,8 @@
 
 The purpose of this benchmark is for people who wants to evaluate and compare the performance characteristics of these parsers.
 
+The numbers indicate that Oxc is at least 3 times faster than Swc and 5 times faster than Biome.
+
 ## Results
 
 ### Codspeed
@@ -11,17 +13,17 @@ The purpose of this benchmark is for people who wants to evaluate and compare th
 [codspeed-badge]: https://img.shields.io/endpoint?url=https://codspeed.io/badge.json
 [codspeed-url]: https://codspeed.io/oxc-project/bench-javascript-parser-written-in-rust/benchmarks
 
-Codspeed measures performance by cpu instructions. The numbers indicate that Oxc is 3x faster than Swc."
+Codspeed measures performance by cpu instructions.
 
-### Mac M2 8 cores
+### Mac i7 6 cores
 
 <img src="./bar-graph.svg">
 
 |                     | `oxc`                    | `swc`                            | `biome`                           |
 |:--------------------|:-------------------------|:---------------------------------|:--------------------------------- |
-| **`single-thread`** | `49.79 ms` (✅ **1.00x**) | `104.17 ms` (❌ *2.09x slower*)   | `167.76 ms` (❌ *3.37x slower*)    |
-| **`no-drop`**       | `49.97 ms` (✅ **1.00x**) | `97.29 ms` (❌ *1.95x slower*)    | `159.32 ms` (❌ *3.19x slower*)    |
-| **`parallel`**      | `88.36 ms` (✅ **1.00x**) | `181.59 ms` (❌ *2.06x slower*)   | `330.30 ms` (❌ *3.74x slower*)    |
+| **`single-thread`** | `58.31 ms` (✅ **1.00x**) | `210.81 ms` (❌ *3.62x slower*)   | `324.68 ms` (❌ *5.57x slower*)    |
+| **`no-drop`**       | `58.43 ms` (✅ **1.00x**) | `193.08 ms` (❌ *3.30x slower*)   | `283.26 ms` (❌ *4.85x slower*)    |
+| **`parallel`**      | `72.39 ms` (✅ **1.00x**) | `257.81 ms` (❌ *3.56x slower*)   | `434.60 ms` (❌ *6.00x slower*)    |
 
 #### single-thread
 
