@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-oxc = "0.12.2"
+oxc = "0.12.3"
 swc_ecma_parser = "0.143.13"
 swc_ecma_ast = "0.112.7"
 biome_js_parser = "0.5.7"
