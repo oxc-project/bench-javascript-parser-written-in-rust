@@ -1,4 +1,4 @@
-pub use criterion2::{measurement::WallTime, *};
+use criterion::{measurement::WallTime, *};
 use rayon::prelude::*;
 
 #[global_allocator]
