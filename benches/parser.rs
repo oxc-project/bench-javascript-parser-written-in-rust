@@ -1,9 +1,4 @@
-#[cfg(not(codspeed))]
-pub use criterion::{measurement::WallTime, *};
-
-#[cfg(codspeed)]
-pub use codspeed_criterion_compat::{measurement::WallTime, *};
-
+pub use criterion2::{measurement::WallTime, *};
 use rayon::prelude::*;
 
 #[global_allocator]

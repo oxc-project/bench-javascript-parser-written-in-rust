@@ -4,22 +4,6 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
-[dependencies]
-oxc = "0.12.4"
-swc_ecma_parser = "0.143.16"
-swc_ecma_ast = "0.112.8"
-biome_js_parser = "0.5.7"
-biome_js_syntax = "0.5.7"
-
-num_cpus = "1.16.0"
-criterion = { version = "0.5" }
-rayon = "1.10.0"
-mimalloc = "0.1.39"
-codspeed-criterion-compat = { version = "2.5.0", default-features = false, optional = true }
-
-[features]
-codspeed = ["codspeed-criterion-compat"]
-
 [[bench]]
 name = "parser"
 harness = false
@@ -31,3 +15,18 @@ codegen-units = 1
 strip         = "symbols"
 debug         = false
 panic         = "abort"
+
+[dependencies]
+oxc = "0.12.4"
+swc_ecma_parser = "0.143.16"
+swc_ecma_ast = "0.112.8"
+biome_js_parser = "0.5.7"
+biome_js_syntax = "0.5.7"
+
+num_cpus = "1.16.0"
+criterion2 = { version = "0.7", default-features = false }
+rayon = "1.10.0"
+mimalloc = "0.1.39"
+
+[features]
+codspeed = ["criterion2/codspeed"]
