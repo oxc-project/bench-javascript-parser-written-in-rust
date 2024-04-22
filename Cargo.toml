@@ -15,7 +15,7 @@ num_cpus = "1.16.0"
 criterion = { version = "0.5" }
 rayon = "1.10.0"
 mimalloc = "0.1.39"
-codspeed-criterion-compat = { version = "2.4.1", default-features = false, optional = true }
+codspeed-criterion-compat = { version = "2.5.0", default-features = false, optional = true }
 
 [features]
 codspeed = ["codspeed-criterion-compat"]
