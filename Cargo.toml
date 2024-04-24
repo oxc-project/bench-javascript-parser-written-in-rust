@@ -18,8 +18,8 @@ panic         = "abort"
 
 [dependencies]
 oxc = "0.12.5"
-swc_ecma_parser = "0.143.16"
-swc_ecma_ast = "0.112.8"
+swc_ecma_parser = "0.144.0"
+swc_ecma_ast = "0.113.0"
 biome_js_parser = "0.5.7"
 biome_js_syntax = "0.5.7"
 
