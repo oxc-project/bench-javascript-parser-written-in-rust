@@ -1,38 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automerge": true,
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": ["^rust-toolchain\\.toml?$"],
-      "matchStrings": [
-        "channel\\s*=\\s*\"(?<currentValue>\\d+\\.\\d+(\\.\\d+)?)\""
-      ],
-      "depNameTemplate": "rust",
-      "lookupNameTemplate": "rust-lang/rust",
-      "datasourceTemplate": "github-releases"
-    }
-  ],
+  "extends": ["github>Boshen/renovate"],
+  "schedule": ["before 8am"],
   "packageRules": [
     {
       "matchPackagePatterns": ["oxc"],
-      "groupName": "oxc",
-      "automerge": true
+      "groupName": "oxc"
     },
     {
       "matchPackagePatterns": ["swc"],
-      "groupName": "swc",
-      "automerge": true
+      "groupName": "swc"
     },
     {
       "matchPackagePatterns": ["biome"],
-      "groupName": "biome",
-      "automerge": true
-    },
-    {
-      "groupName": "rust toolchain",
-      "matchManagers": ["regex"],
-      "matchDepNames": ["rust"]
+      "groupName": "biome"
     }
   ]
 }
