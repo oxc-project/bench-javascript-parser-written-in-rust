@@ -17,7 +17,7 @@ debug         = false
 panic         = "abort"
 
 [dependencies]
-oxc = "0.12.5"
+oxc = "0.13.0"
 swc_ecma_parser = "0.144.1"
 swc_ecma_ast = "0.113.1"
 biome_js_parser = "0.5.7"
