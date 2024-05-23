@@ -1,20 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>Boshen/renovate"],
-  "schedule": ["at any time"],
-  "automergeType": "pr",
   "packageRules": [
     {
       "groupName": "oxc",
-      "matchPackagePatterns": ["oxc"]
+      "matchPackagePatterns": ["oxc"],
+      "schedule": ["at any time"],
+      "automergeType": "pr"
     },
     {
       "groupName": "swc",
-      "matchPackagePatterns": ["swc"]
+      "matchPackagePatterns": ["swc"],
+      "schedule": ["at any time"],
+      "automergeType": "pr"
     },
     {
       "groupName": "biome",
-      "matchPackagePatterns": ["biome"]
+      "matchPackagePatterns": ["biome"],
+      "schedule": ["at any time"],
+      "automergeType": "pr"
     }
   ]
 }
