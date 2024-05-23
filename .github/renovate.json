@@ -3,9 +3,6 @@
   "extends": ["github>Boshen/renovate"],
   "schedule": ["at any time"],
   "automergeType": "pr",
-  "lockFileMaintenance": {
-    "enabled": false
-  },
   "packageRules": [
     {
       "groupName": "oxc",
