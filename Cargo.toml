@@ -24,7 +24,7 @@ biome_js_parser = "0.5.7"
 biome_js_syntax = "0.5.7"
 
 num_cpus = "1.16.0"
-criterion  = { package = "criterion2", version = "0.8.0", default-features = false }
+criterion  = { package = "criterion2", version = "0.10.0", default-features = false }
 rayon = "1.10.0"
 mimalloc = "0.1.41"
 
