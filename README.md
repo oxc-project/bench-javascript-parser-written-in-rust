@@ -1,4 +1,4 @@
-# Benchmark for Oxc, Swc and Biome parser
+# Parser Benchmark for Oxc, Swc and Biome
 
 The purpose of this benchmark is for people who wants to evaluate and compare the performance characteristics of these parsers.
 
@@ -53,8 +53,7 @@ group.bench_with_input(id, &source, |b, source| {
 
 This benchmark uses the total number of physical cores as the total number of files to parse per bench iteration. For example it parses 6 files in parallel on my Mac i7 6 cores.
 
-This can indicate the existence of resource contention.
-For example swc uses [`string_cache`](https://crates.io/crates/string_cache) crate, which uses a global concurrent hashmap.
+This can indicate the existence of global resource contention.
 
 ```rust
 let cpus = num_cpus::get_physical();
