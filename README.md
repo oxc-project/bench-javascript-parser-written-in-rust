@@ -19,6 +19,8 @@ Codspeed measures performance by cpu instructions.
 
 <img src="./bar-graph.svg">
 
+### Mac mini M2 8 cores
+
 ### cal.com.tsx
 
 |               | oxc              | swc               |biome             |
