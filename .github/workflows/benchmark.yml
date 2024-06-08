@@ -25,6 +25,7 @@ jobs:
 
       - uses: Boshen/setup-rust@main
         with:
+          save-cache: ${{ github.ref_name == 'main' }}
           tools: cargo-codspeed
 
       - name: Build Benchmark
