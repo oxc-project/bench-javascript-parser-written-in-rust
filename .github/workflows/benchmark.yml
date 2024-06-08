@@ -21,15 +21,11 @@ jobs:
     name: Benchmark
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Branch
-        uses: actions/checkout@v4
+      - uses: taiki-e/checkout-action@v1
 
-      - name: Setup rust toolchain, cache and cargo-codspeed binary
-        uses: moonrepo/setup-rust@v1
+      - uses: Boshen/setup-rust@main
         with:
-          channel: stable
-          cache-target: release
-          bins: cargo-codspeed
+          tools: cargo-codspeed
 
       - name: Build Benchmark
         run: cargo codspeed build --features codspeed
