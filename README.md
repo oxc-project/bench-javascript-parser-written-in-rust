@@ -19,11 +19,21 @@ Codspeed measures performance by cpu instructions.
 
 <img src="./bar-graph.svg">
 
-|                     | `oxc`                    | `swc`                            | `biome`                           |
-|:--------------------|:-------------------------|:---------------------------------|:--------------------------------- |
-| **`single-thread`** | `58.31 ms` (✅ **1.00x**) | `210.81 ms` (❌ *3.62x slower*)   | `324.68 ms` (❌ *5.57x slower*)    |
-| **`no-drop`**       | `58.43 ms` (✅ **1.00x**) | `193.08 ms` (❌ *3.30x slower*)   | `283.26 ms` (❌ *4.85x slower*)    |
-| **`parallel`**      | `72.39 ms` (✅ **1.00x**) | `257.81 ms` (❌ *3.56x slower*)   | `434.60 ms` (❌ *6.00x slower*)    |
+### cal.com.tsx
+
+|               | oxc              | swc               |biome             |
+| ------------- | ---------------- | ----------------- |----------------- |
+| no-drop       | `3.9 ms` (1.00x) | `15.9 ms` (4.03x) |`20.8 ms` (5.29x) |
+| parallel      | `7.4 ms` (1.00x) | `32.4 ms` (4.40x) |`40.6 ms` (5.50x) |
+| single-thread | `3.9 ms` (1.00x) | `16.5 ms` (4.21x) |`20.8 ms` (5.30x) |
+
+### typescript.js
+
+|               | oxc               | swc                |biome              |
+| ------------- | ----------------- | ------------------ |------------------ |
+| no-drop       | `29.4 ms` (1.00x) | `111.5 ms` (3.79x) |`159.0 ms` (5.41x) |
+| parallel      | `49.5 ms` (1.00x) | `236.7 ms` (4.78x) |`337.9 ms` (6.83x) |
+| single-thread | `29.4 ms` (1.00x) | `113.2 ms` (3.85x) |`167.9 ms` (5.71x) |
 
 #### single-thread
 
@@ -77,12 +87,9 @@ cargo bench
 Generate the table
 
 ```bash
-cargo install cargo-criterion
-cargo install criterion-table
-cargo criterion --message-format=json | criterion-table > BENCHMARKS.md
+pnpm i
+pnpm run table
 ```
-
-Generate the bar graph: https://www.rapidtables.com/tools/bar-graph.html
 
 ## Input
 

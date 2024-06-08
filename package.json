@@ -1,0 +1,11 @@
+{
+  "name": "bench-javascript-parser-written-in-rust",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "table": "node table.mjs"
+  },
+  "devDependencies": {
+    "markdown-table": "^3.0.3"
+  }
+}
