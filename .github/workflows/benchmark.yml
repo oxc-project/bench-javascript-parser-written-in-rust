@@ -16,6 +16,10 @@ on:
       - 'Cargo.lock'
       - 'rust-toolchain.toml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
+
 jobs:
   benchmark:
     name: Benchmark
