@@ -21,7 +21,7 @@ Codspeed measures performance by cpu instructions.
 
 ### Mac mini M2 8 cores
 
-### cal.com.tsx
+#### cal.com.tsx
 
 |               | oxc              | swc               |biome             |
 | ------------- | ---------------- | ----------------- |----------------- |
@@ -29,7 +29,7 @@ Codspeed measures performance by cpu instructions.
 | parallel      | `7.4 ms` (1.00x) | `32.4 ms` (4.40x) |`40.6 ms` (5.50x) |
 | single-thread | `3.9 ms` (1.00x) | `16.5 ms` (4.21x) |`20.8 ms` (5.30x) |
 
-### typescript.js
+#### typescript.js
 
 |               | oxc               | swc                |biome              |
 | ------------- | ----------------- | ------------------ |------------------ |

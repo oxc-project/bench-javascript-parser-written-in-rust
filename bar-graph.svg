@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg overflow="hidden" aria-label="A chart." viewBox="0 0 600 390" xmlns="http://www.w3.org/2000/svg">
-<rect width="600" height="390" fill="#fff" stroke-width="0"/>
-<g stroke-width="0">
-<text x="115" y="52.05" fill="#000000" font-family="Arial" font-size="13" font-weight="bold">Parser Benchmark</text>
-<rect x="115" y="41" width="371" height="13" fill="#fff" fill-opacity="0"/>
-</g>
-<rect x="499" y="75" width="88" height="55" fill="#fff" fill-opacity="0" stroke-width="0"/>
-<rect x="499" y="75" width="88" height="13" fill="#fff" fill-opacity="0" stroke-width="0"/>
-<text x="530" y="86.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0">oxc</text>
-<rect x="499" y="75" width="26" height="13" fill="#36c" stroke-width="0"/>
-<rect x="499" y="96" width="88" height="13" fill="#fff" fill-opacity="0" stroke-width="0"/>
-<text x="530" y="107.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0">swc</text>
-<rect x="499" y="96" width="26" height="13" fill="#12bcde" stroke-width="0"/>
-<rect x="499" y="117" width="88" height="13" fill="#fff" fill-opacity="0" stroke-width="0"/>
-<text x="530" y="128.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0">rome</text>
-<rect x="499" y="117" width="26" height="13" fill="#ffd500" stroke-width="0"/>
-<rect x="115" y="75" width="371" height="241" fill="#fff" fill-opacity="0" stroke-width="0"/>
-<g stroke-width="0">
-<rect x="115" y="75" width="1" height="241" fill="#ccc"/>
-<rect x="208" y="75" width="1" height="241" fill="#ccc"/>
-<rect x="300" y="75" width="1" height="241" fill="#ccc"/>
-<rect x="393" y="75" width="1" height="241" fill="#ccc"/>
-<rect x="485" y="75" width="1" height="241" fill="#ccc"/>
-<rect x="161" y="75" width="1" height="241" fill="#ebebeb"/>
-<rect x="254" y="75" width="1" height="241" fill="#ebebeb"/>
-<rect x="346" y="75" width="1" height="241" fill="#ebebeb"/>
-<rect x="439" y="75" width="1" height="241" fill="#ebebeb"/>
-<rect x="116" y="121" width="53" height="49" fill="#36c"/>
-<rect x="116" y="171" width="193" height="49" fill="#12bcde"/>
-<rect x="116" y="221" width="299" height="49" fill="#ffd500"/>
-<rect x="115" y="75" width="1" height="241" fill="#333"/>
-</g>
-<text x="115.5" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">0</text>
-<text x="208" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">100</text>
-<text x="300.5" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">200</text>
-<text x="393" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">300</text>
-<text x="485.5" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">400</text>
-<text x="102" y="200.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0" text-anchor="end">single-thread</text>
-<g stroke-width="0">
-<text x="300.5" y="368.05" fill="#222222" font-family="Arial" font-size="13" font-style="italic" text-anchor="middle">time (ms)</text>
-<rect x="115" y="357" width="371" height="13" fill="#fff" fill-opacity="0"/>
-</g>
+<svg overflow="hidden" viewBox="0 0 600 390" xmlns="http://www.w3.org/2000/svg">
+
+  <rect width="600" height="390" fill="#fff" stroke-width="0" />
+
+  <g stroke-width="0">
+    <text x="115" y="52.05" fill="#000000" font-family="Arial" font-size="13" font-weight="bold">Parser Benchmark</text>
+  </g>
+
+  <text x="530" y="86.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0">oxc</text>
+  <rect x="499" y="75" width="26" height="13" fill="#36c" stroke-width="0" />
+
+  <text x="530" y="107.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0">swc</text>
+  <rect x="499" y="96" width="26" height="13" fill="#12bcde" stroke-width="0" />
+
+  <text x="530" y="128.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0">biome</text>
+  <rect x="499" y="117" width="26" height="13" fill="#ffd500" stroke-width="0" />
+
+  <g stroke-width="0">
+    <rect x="115" y="75" width="1" height="241" fill="#ccc" />
+    <rect x="208" y="75" width="1" height="241" fill="#ccc" />
+    <rect x="300" y="75" width="1" height="241" fill="#ccc" />
+    <rect x="393" y="75" width="1" height="241" fill="#ccc" />
+    <rect x="485" y="75" width="1" height="241" fill="#ccc" />
+    <rect x="161" y="75" width="1" height="241" fill="#ebebeb" />
+    <rect x="254" y="75" width="1" height="241" fill="#ebebeb" />
+    <rect x="346" y="75" width="1" height="241" fill="#ebebeb" />
+    <rect x="439" y="75" width="1" height="241" fill="#ebebeb" />
+
+    <rect x="116" y="121" width="53" height="49" fill="#36c" />
+    <rect x="116" y="171" width="193" height="49" fill="#12bcde" />
+    <rect x="116" y="221" width="300" height="49" fill="#ffd500" />
+  </g>
+
+  <text x="115.5" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">0</text>
+  <text x="208" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">100</text>
+  <text x="300.5" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">200</text>
+  <text x="393" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">300</text>
+  <text x="485.5" y="335.05" fill="#444444" font-family="Arial" font-size="13" stroke-width="0" text-anchor="middle">400</text>
+  <text x="102" y="200.05" fill="#222222" font-family="Arial" font-size="13" stroke-width="0" text-anchor="end">single-thread</text>
+
+  <g stroke-width="0">
+    <text x="300.5" y="368.05" fill="#222222" font-family="Arial" font-size="13" text-anchor="middle">time (ms)</text>
+  </g>
 </svg>
