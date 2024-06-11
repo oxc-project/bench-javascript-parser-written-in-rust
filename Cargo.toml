@@ -8,6 +8,18 @@ publish = false
 name = "parser"
 harness = false
 
+[[bin]]
+name = "oxc"
+path = "src/oxc.rs"
+
+[[bin]]
+name = "swc"
+path = "src/swc.rs"
+
+[[bin]]
+name = "biome"
+path = "src/biome.rs"
+
 [profile.release]
 opt-level     = 3
 lto           = "fat"
