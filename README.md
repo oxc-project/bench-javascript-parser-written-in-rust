@@ -37,64 +37,8 @@ Codspeed measures performance by cpu instructions.
 | parallel      | `49.5 ms` (1.00x) | `236.7 ms` (4.78x) |`337.9 ms` (6.83x) |
 | single-thread | `29.4 ms` (1.00x) | `113.2 ms` (3.85x) |`167.9 ms` (5.71x) |
 
-#### single-thread
 
-This is the standard benchmark run in a single thread.
-
-```rust
-group.bench_with_input(id, &source, |b, source| {
-    b.iter(|| Self::parse(source))
-});
-```
-
-#### no-drop
-
-This uses the [`iter_with_large_drop`](https://docs.rs/criterion/0.5.1/criterion/struct.Bencher.html#method.iter_with_large_drop) function, which does not take AST drop time into account.
-Notice there is only a 0.3ms difference for oxc, but 7ms difference for swc.
-
-AST drop time can become a bottleneck in applications such as as bundler,
-where there are a few thousands of files need to be parsed.
-
-```rust
-group.bench_with_input(id, &source, |b, source| {
-    b.iter_with_large_drop(|| Self::parse(source))
-});
-```
-
-#### parallel
-
-This benchmark uses the total number of physical cores as the total number of files to parse per bench iteration. For example it parses 6 files in parallel on my Mac i7 6 cores.
-
-This can indicate the existence of global resource contention.
-
-```rust
-let cpus = num_cpus::get_physical();
-group.bench_with_input(id, &source, |b, source| {
-    b.iter(|| {
-        (0..cpus).into_par_iter().for_each(|_| {
-            Self::parse(source);
-        });
-    })
-});
-```
-
-## Maximum Resident Set Size
-
-```bash
-./memory.sh
-
-./files/cal.com.tsx
-oxc   11.5 mb (1.00x)
-swc   16.6 mb (1.44x)
-biome 22.5 mb (1.95x)
-
-./files/typescript.js
-oxc    68.8 mb (1.00x)
-swc    92.0 mb (1.34x)
-biome 117.4 mb (1.70x)
-```
-
-## Run
+### Run benchmark locally
 
 Run the following command on your machine for replication.
 
@@ -109,10 +53,24 @@ pnpm i
 pnpm run table
 ```
 
-## Input
+## Maximum Resident Set Size
 
-* File: https://cdn.jsdelivr.net/npm/typescript@5.1.6/lib/typescript.js
-* File Size: 7.8M
+```
+./memory.sh
+
+./files/cal.com.tsx
+oxc   11.5 mb (1.00x)
+swc   16.6 mb (1.44x)
+biome 22.5 mb (1.95x)
+
+./files/typescript.js
+oxc    68.8 mb (1.00x)
+swc    92.0 mb (1.34x)
+biome 117.4 mb (1.70x)
+```
+
+## Setup
+
 * Uses `mimalloc` as the global allocator
 * Uses the following release profile
 
@@ -124,4 +82,45 @@ codegen-units = 1
 strip         = "symbols"
 debug         = false
 panic         = "abort"
+```
+
+### single-thread
+
+This is the standard benchmark run in a single thread.
+
+```rust
+group.bench_with_input(id, &source, |b, source| {
+    b.iter(|| Self::parse(source))
+});
+```
+
+### no-drop
+
+This uses the [`iter_with_large_drop`](https://docs.rs/criterion/0.5.1/criterion/struct.Bencher.html#method.iter_with_large_drop) function, which does not take AST drop time into account.
+Notice there is only a 0.3ms difference for oxc, but 7ms difference for swc.
+
+AST drop time can become a bottleneck in applications such as as bundler,
+where there are a few thousands of files need to be parsed.
+
+```rust
+group.bench_with_input(id, &source, |b, source| {
+    b.iter_with_large_drop(|| Self::parse(source))
+});
+```
+
+### parallel
+
+This benchmark uses the total number of physical cores as the total number of files to parse per bench iteration. For example it parses 6 files in parallel on my Mac i7 6 cores.
+
+This can indicate the existence of global resource contention.
+
+```rust
+let cpus = num_cpus::get_physical();
+group.bench_with_input(id, &source, |b, source| {
+    b.iter(|| {
+        (0..cpus).into_par_iter().for_each(|_| {
+            Self::parse(source);
+        });
+    })
+});
 ```
