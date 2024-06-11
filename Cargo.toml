@@ -20,14 +20,6 @@ path = "src/swc.rs"
 name = "biome"
 path = "src/biome.rs"
 
-[profile.release]
-opt-level     = 3
-lto           = "fat"
-codegen-units = 1
-strip         = "symbols"
-debug         = false
-panic         = "abort"
-
 [dependencies]
 oxc = "0.13.5"
 
@@ -44,3 +36,11 @@ mimalloc = "0.1.42"
 
 [features]
 codspeed = ["criterion2/codspeed"]
+
+[profile.release]
+opt-level     = 3
+lto           = "fat"
+codegen-units = 1
+strip         = "symbols"
+debug         = false
+panic         = "abort"

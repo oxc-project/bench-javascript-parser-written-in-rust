@@ -4,9 +4,9 @@ The purpose of this benchmark is for people who wants to evaluate and compare th
 
 The numbers indicate that Oxc is at least 3 times faster than Swc and 5 times faster than Biome.
 
-## Results
+## CPU
 
-### Codspeed
+### Codspeed Measurement
 
 [![CodSpeed Badge][codspeed-badge]][codspeed-url]
 
@@ -76,6 +76,22 @@ group.bench_with_input(id, &source, |b, source| {
         });
     })
 });
+```
+
+## Maximum Resident Set Size
+
+```bash
+./memory.sh
+
+./files/cal.com.tsx
+oxc   11.5 mb (1.00x)
+swc   16.6 mb (1.44x)
+biome 22.5 mb (1.95x)
+
+./files/typescript.js
+oxc    68.8 mb (1.00x)
+swc    92.0 mb (1.34x)
+biome 117.4 mb (1.70x)
 ```
 
 ## Run
