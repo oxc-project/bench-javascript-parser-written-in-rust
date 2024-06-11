@@ -44,36 +44,19 @@ impl TheBencher for OxcBencher {
     const ID: &'static str = "oxc";
 
     fn parse(path: &Path, source: &str) -> Self::ParseOutput {
-        let allocator = oxc::allocator::Allocator::default();
-        let source_type = oxc::span::SourceType::from_path(path).unwrap();
-        _ = oxc::parser::Parser::new(&allocator, source, source_type).parse();
-        allocator
+        bench_parser::oxc::parse(path, source)
     }
 }
 
 struct SwcBencher;
 
 impl TheBencher for SwcBencher {
-    type ParseOutput = swc_ecma_parser::PResult<swc_ecma_ast::Module>;
+    type ParseOutput = swc_ecma_ast::Module;
 
     const ID: &'static str = "swc";
 
     fn parse(path: &Path, source: &str) -> Self::ParseOutput {
-        use swc_ecma_parser::{EsConfig, Parser, StringInput, Syntax, TsConfig};
-        let syntax = match path.extension().unwrap().to_str().unwrap() {
-            "js" => Syntax::Es(EsConfig::default()),
-            "tsx" => Syntax::Typescript(TsConfig {
-                tsx: true,
-                ..TsConfig::default()
-            }),
-            _ => panic!("need to define syntax  for swc"),
-        };
-        Parser::new(
-            syntax,
-            StringInput::new(source, Default::default(), Default::default()),
-            None,
-        )
-        .parse_module()
+        bench_parser::swc::parse(path, source)
     }
 }
 
@@ -85,9 +68,7 @@ impl TheBencher for BiomeBencher {
     const ID: &'static str = "biome";
 
     fn parse(path: &Path, source: &str) -> Self::ParseOutput {
-        let options = biome_js_parser::JsParserOptions::default();
-        let source_type = biome_js_syntax::JsFileSource::try_from(path).unwrap();
-        biome_js_parser::parse(source, source_type, options)
+        bench_parser::biome::parse(path, source)
     }
 }
 
