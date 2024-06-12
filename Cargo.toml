@@ -23,7 +23,7 @@ path = "src/biome.rs"
 [dependencies]
 oxc = "0.13.5"
 
-swc_ecma_parser = { version = "0.144.2", features = ["typescript"] }
+swc_ecma_parser = { version = "0.144.3", features = ["typescript"] }
 swc_ecma_ast = "0.113.7"
 
 biome_js_parser = "0.5.7"
