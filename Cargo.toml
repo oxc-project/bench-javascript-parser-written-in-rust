@@ -11,14 +11,20 @@ harness = false
 [[bin]]
 name = "oxc"
 path = "src/oxc.rs"
+test    = false
+doctest = false
 
 [[bin]]
 name = "swc"
 path = "src/swc.rs"
+test    = false
+doctest = false
 
 [[bin]]
 name = "biome"
 path = "src/biome.rs"
+test    = false
+doctest = false
 
 [dependencies]
 oxc = "0.14.0"
