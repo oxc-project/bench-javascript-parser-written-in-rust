@@ -491,6 +491,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "dashmap"
+version = "6.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "804c8821570c3f8b70230c2ba75ffa5c0f9a4189b9a432b6656c536712acae28"
+dependencies = [
+ "cfg-if",
+ "crossbeam-utils",
+ "hashbrown 0.14.5",
+ "lock_api",
+ "once_cell",
+ "parking_lot_core",
+]
+
+[[package]]
 name = "drop_bomb"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -807,9 +821,9 @@ checksum = "caff54706df99d2a78a5a4e3455ff45448d81ef1bb63c22cd14052ca0e993a3f"
 
 [[package]]
 name = "oxc"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0efd41d2f3f490484b84245e3be9c9af853d443198953adc7c47a8fce0d305c4"
+checksum = "eef9ded920e483471c6cf613d5131c74af2855165ea8174d663f599a56a3fb3a"
 dependencies = [
  "oxc_allocator",
  "oxc_ast",
@@ -822,9 +836,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_allocator"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7dddfd4b859f51fe4b91fafd847e136cc21dfab7cec75513f0427ce4d39f614e"
+checksum = "944ce079709849f7621902c7747141336fbdfa5419ae8da8ac11edc5679e977f"
 dependencies = [
  "allocator-api2",
  "bumpalo",
@@ -832,9 +846,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_ast"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4011133166ab3e57960f26d42ab56dbe9a3fdd20e279bc54c581ad8b9344d585"
+checksum = "0814bc95355ba0ff7f60db5a01504cfdbbd44ae269cf4238356080964ae2ddbf"
 dependencies = [
  "bitflags",
  "num-bigint",
@@ -846,15 +860,15 @@ dependencies = [
 
 [[package]]
 name = "oxc_ast_macros"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2cd2e54fe624598fa53806e3d092942f3b11078d9cc29a470e4b5907acf40f2e"
+checksum = "34f6e9a0084937918818610e310edd9234b324863fcf46d9b5106b92fba30824"
 
 [[package]]
 name = "oxc_diagnostics"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1e27d66ffd8bdc032d7a2d918e25ee91a6aa5ef7d712d624bac1c77e6b8e6870"
+checksum = "db41d3247dde8f6112233692d1d8065f8828cddf8c8735281b4a67238937d70b"
 dependencies = [
  "miette",
  "owo-colors",
@@ -864,15 +878,15 @@ dependencies = [
 
 [[package]]
 name = "oxc_index"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "939fd785d887b25e802ae35fbcc6f6ad3ccf648eeefb98c801dab47047c2d281"
+checksum = "1bdb0c0067294f8919bf259393c5d8f36b8cff40ff63d698cc921cacec77fc58"
 
 [[package]]
 name = "oxc_parser"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "30a2874be11c32e1dd214bb5ad7a7ae7bca3597e9fc27e633b463f0d7c59ab6f"
+checksum = "f05c4d50a236bc5412b1702af99a4ddab88b60e8ef8d14178d74fba234fdd648"
 dependencies = [
  "assert-unchecked",
  "bitflags",
@@ -894,7 +908,7 @@ version = "1.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ebd177c1f521d3c6631fa96abb6d97220ce4bed102e1e0172b11496ed9442fae"
 dependencies = [
- "dashmap",
+ "dashmap 5.5.3",
  "dunce",
  "json-strip-comments",
  "once_cell",
@@ -908,9 +922,9 @@ dependencies = [
 
 [[package]]
 name = "oxc_span"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d55012e4e027cb6b91bfc9047c248d3464300b96355b432583882dd50fa85cbe"
+checksum = "37c8fb1f1dd18f8832b173939aff1c8a6fb2c50a6f95adf1aee817a65482e549"
 dependencies = [
  "compact_str",
  "miette",
@@ -918,12 +932,12 @@ dependencies = [
 
 [[package]]
 name = "oxc_syntax"
-version = "0.16.2"
+version = "0.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cb47ffa16b13d3e08115653aa72c87a982c8d4d248033cc8b3edf5aeec6aa131"
+checksum = "7a2909d1da9949782e08d633f46a4f3a52dcd3ef539b7a0ebfc5d02d7f6eb159"
 dependencies = [
  "bitflags",
- "dashmap",
+ "dashmap 6.0.1",
  "oxc_index",
  "oxc_span",
  "phf",
