@@ -15,14 +15,14 @@ pub mod swc {
     use std::path::Path;
 
     use swc_ecma_ast::Module;
-    use swc_ecma_parser::{EsConfig, Parser, StringInput, Syntax, TsConfig};
+    use swc_ecma_parser::{EsSyntax, Parser, StringInput, Syntax, TsSyntax};
 
     pub fn parse(path: &Path, source: &str) -> Module {
         let syntax = match path.extension().unwrap().to_str().unwrap() {
-            "js" => Syntax::Es(EsConfig::default()),
-            "tsx" => Syntax::Typescript(TsConfig {
+            "js" => Syntax::Es(EsSyntax::default()),
+            "tsx" => Syntax::Typescript(TsSyntax {
                 tsx: true,
-                ..TsConfig::default()
+                ..TsSyntax::default()
             }),
             _ => panic!("need to define syntax  for swc"),
         };
