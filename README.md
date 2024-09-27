@@ -2,7 +2,13 @@
 
 The purpose of this benchmark is for people who wants to evaluate and compare the performance characteristics of these parsers.
 
-The numbers indicate that Oxc is at least 3 times faster than Swc and 5 times faster than Biome.
+## Summary
+
+Oxc's parser is at least 3x faster than swc and 5x faster than Biome.
+
+Please note that it is not an apple to apple comparison with Biome.
+Biome's parser [produces a CST](https://biomejs.dev/internals/architecture) instead of an AST,
+which requires a lot more work.
 
 ## CPU
 
