@@ -29,8 +29,8 @@ doctest = false
 [dependencies]
 oxc = "0.38.0"
 
-swc_ecma_parser = { version = "5.0.0", features = ["typescript"] }
-swc_ecma_ast = "4.0.1"
+swc_ecma_parser = { version = "6.0.0", features = ["typescript"] }
+swc_ecma_ast = "5.0.0"
 
 biome_js_parser = "0.5.7"
 biome_js_syntax = "0.5.7"
