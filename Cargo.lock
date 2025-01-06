@@ -601,9 +601,9 @@ checksum = "d231dfb89cfffdbc30e7fc41579ed6066ad03abda9e567ccafae602b97ec5024"
 
 [[package]]
 name = "hstr"
-version = "0.2.12"
+version = "0.2.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dae404c0c5d4e95d4858876ab02eecd6a196bb8caa42050dfa809938833fc412"
+checksum = "ec9b008b27d11024a71664660c82f62bc9ae9fc68b477279598a69bd9e5f7b7c"
 dependencies = [
  "hashbrown 0.14.5",
  "new_debug_unreachable",
@@ -1577,9 +1577,9 @@ dependencies = [
 
 [[package]]
 name = "swc_atoms"
-version = "3.0.0"
+version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "151a6feb82b989a087433baca7f6a6eb4fcf83f828c479eecd039c9312d60e10"
+checksum = "ba452d6867b57b0c3d210405bf01d3a77388451f3d02aa8f463e917fd213c7e0"
 dependencies = [
  "hstr",
  "once_cell",
@@ -1615,9 +1615,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_ast"
-version = "5.0.0"
+version = "5.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94cf86f17358b93fcfe2876a9f0f7a7ebbff94cd6eaab4c809c7a0da1f4b892e"
+checksum = "82f448db2d1c52ffd2bd3788d89cafd8b5a75b97f0dc8aae00874dda2647f6b6"
 dependencies = [
  "bitflags",
  "is-macro",
