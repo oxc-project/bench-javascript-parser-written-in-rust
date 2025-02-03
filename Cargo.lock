@@ -1570,14 +1570,14 @@ dependencies = [
 
 [[package]]
 name = "swc_allocator"
-version = "2.0.0"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "117d5d3289663f53022ebf157df8a42b3872d7ac759e63abf96b5987b85d4af3"
+checksum = "1a1f988452cab8c4e25776e5a855ba088cdb38fbe9714f9b9d2a6ff345824858"
 dependencies = [
  "bumpalo",
  "hashbrown 0.14.5",
  "ptr_meta",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.1.0",
  "triomphe",
 ]
 
@@ -1595,9 +1595,9 @@ dependencies = [
 
 [[package]]
 name = "swc_common"
-version = "5.0.1"
+version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "29e67f0a373efdcbc1faebbb9ed7eaf7bcd7bc407cdd8b0fdd9475337c4364ce"
+checksum = "fa92d673f12585e950300d3d397eefd2da9effe3373d7882f46b35b0f9ef9cec"
 dependencies = [
  "ast_node",
  "better_scoped_tls",
@@ -1607,7 +1607,7 @@ dependencies = [
  "new_debug_unreachable",
  "num-bigint",
  "once_cell",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.1.0",
  "serde",
  "siphasher",
  "swc_allocator",
@@ -1621,9 +1621,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_ast"
-version = "5.1.0"
+version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f04d44a7edb591a66b9abc276ef306ab6d73d4ef189c1cb54423625ad236348f"
+checksum = "2d16cd007587c1cccaabe76ad640a59a05e51fed0ec4c0600b8ed6f26c9be2ec"
 dependencies = [
  "bitflags",
  "is-macro",
@@ -1639,15 +1639,16 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "7.0.1"
+version = "8.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8cf8a7677aa667eb2a629625cc4a5947eefcab717ee0feee5aadb1a4bf9d5888"
+checksum = "d99556f20b91452fa4c6da1891f90e58998e89842d6321bb7326ebfe81c37dca"
 dependencies = [
  "either",
  "new_debug_unreachable",
  "num-bigint",
  "num-traits",
  "phf",
+ "rustc-hash 2.1.0",
  "serde",
  "smallvec",
  "smartstring",
