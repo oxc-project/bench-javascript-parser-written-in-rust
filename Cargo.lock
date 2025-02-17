@@ -604,15 +604,15 @@ checksum = "d231dfb89cfffdbc30e7fc41579ed6066ad03abda9e567ccafae602b97ec5024"
 
 [[package]]
 name = "hstr"
-version = "0.2.17"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a1a26def229ea95a8709dad32868d975d0dd40235bd2ce82920e4a8fe692b5e0"
+checksum = "e963d8fe690aa5ecd16d270b18362b28643862474f7fceabf105fd4c9b3a6a42"
 dependencies = [
  "hashbrown 0.14.5",
  "new_debug_unreachable",
  "once_cell",
  "phf",
- "rustc-hash 1.1.0",
+ "rustc-hash 2.1.0",
  "triomphe",
 ]
 
@@ -1589,9 +1589,9 @@ dependencies = [
 
 [[package]]
 name = "swc_atoms"
-version = "3.1.0"
+version = "4.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c24077f986f0bc1c07823f850f688dd9be91b186efdb03fe1d52f7c2f2a4a346"
+checksum = "26769479f9cb4248b9c4a9ebde709e2657bb38d612576786680a2eed35c22549"
 dependencies = [
  "hstr",
  "once_cell",
@@ -1601,9 +1601,9 @@ dependencies = [
 
 [[package]]
 name = "swc_common"
-version = "6.1.1"
+version = "7.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7327d132e85f8a50e0a9e2458a7b44726b2db2f7f9c8b8a556f07f359c42a461"
+checksum = "601632c554875758657246e4971735d82ab59cfe13dcf496f70e5d9270f4c6f4"
 dependencies = [
  "ast_node",
  "better_scoped_tls",
@@ -1627,9 +1627,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_ast"
-version = "6.1.0"
+version = "7.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dbd513dab5fb1181e66ac34c4c959e9e8824d8d2c8bd50f698f5f2943794c0cc"
+checksum = "d856e3b85126e83d806b8d327ff6dc3708a4f512137510a210b8b0aaa2b1588b"
 dependencies = [
  "bitflags",
  "is-macro",
@@ -1645,9 +1645,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "8.0.2"
+version = "9.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1a359eaebed82e5e13e1004d1e4003931b66d8b8edab8884f3d02ed827df7530"
+checksum = "0ee398e6093d6816e060d44013f1b8111e2043367899bc05d01cac3fdce12301"
 dependencies = [
  "either",
  "new_debug_unreachable",
