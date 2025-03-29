@@ -1690,9 +1690,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_ast"
-version = "8.0.2"
+version = "8.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ebcf9d10c29e289e459e414e21ed8443d8a58625d98b7e716fe295f457f103b5"
+checksum = "01f80679b1afc52ae0663eed0a2539cc3c108d48c287b5601712f9850d9fa9c2"
 dependencies = [
  "bitflags",
  "is-macro",
@@ -1708,9 +1708,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "10.0.2"
+version = "11.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "edfbfa5baabd14901a310f9d55d991625787d27d94de5c38a1a2ef85ebc19c97"
+checksum = "41e06ecaef86a547831f7f01f342434e4b0d0f363762f8e7a2b84da7a0a5f92e"
 dependencies = [
  "either",
  "new_debug_unreachable",
