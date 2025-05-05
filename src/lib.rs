@@ -31,15 +31,15 @@ pub mod swc {
     }
 }
 
-pub mod biome {
-    use std::path::Path;
+// pub mod biome {
+// use std::path::Path;
 
-    use biome_js_parser::{JsParserOptions, Parse};
-    use biome_js_syntax::{AnyJsRoot, JsFileSource};
+// use biome_js_parser::{JsParserOptions, Parse};
+// use biome_js_syntax::{AnyJsRoot, JsFileSource};
 
-    pub fn parse(path: &Path, source: &str) -> Parse<AnyJsRoot> {
-        let options = JsParserOptions::default();
-        let source_type = JsFileSource::try_from(path).unwrap();
-        biome_js_parser::parse(source, source_type, options)
-    }
-}
+// pub fn parse(path: &Path, source: &str) -> Parse<AnyJsRoot> {
+// let options = JsParserOptions::default();
+// let source_type = JsFileSource::try_from(path).unwrap();
+// biome_js_parser::parse(source, source_type, options)
+// }
+// }
