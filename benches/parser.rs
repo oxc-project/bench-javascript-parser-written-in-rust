@@ -60,17 +60,17 @@ impl TheBencher for SwcBencher {
     }
 }
 
-struct BiomeBencher;
+// struct BiomeBencher;
 
-impl TheBencher for BiomeBencher {
-    type ParseOutput = biome_js_parser::Parse<biome_js_syntax::AnyJsRoot>;
+// impl TheBencher for BiomeBencher {
+// type ParseOutput = biome_js_parser::Parse<biome_js_syntax::AnyJsRoot>;
 
-    const ID: &'static str = "biome";
+// const ID: &'static str = "biome";
 
-    fn parse(path: &Path, source: &str) -> Self::ParseOutput {
-        bench_parser::biome::parse(path, source)
-    }
-}
+// fn parse(path: &Path, source: &str) -> Self::ParseOutput {
+// bench_parser::biome::parse(path, source)
+// }
+// }
 
 fn parser_benchmark(c: &mut Criterion) {
     let filenames = ["typescript.js", "cal.com.tsx"];
@@ -80,7 +80,7 @@ fn parser_benchmark(c: &mut Criterion) {
         let mut g = c.benchmark_group(filename);
         OxcBencher::bench(&mut g, &path, &source);
         SwcBencher::bench(&mut g, &path, &source);
-        BiomeBencher::bench(&mut g, &path, &source);
+        // BiomeBencher::bench(&mut g, &path, &source);
         g.finish();
     }
 }
