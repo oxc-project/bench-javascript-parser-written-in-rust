@@ -7,7 +7,7 @@
   "packageRules": [
     {
       "groupName": "oxc",
-      "matchPackagePrefixes": ["oxc"],
+      "matchDepNames": ["oxc"],
       "schedule": ["at any time"],
       "automergeType": "pr",
       "rangeStrategy": "bump"
