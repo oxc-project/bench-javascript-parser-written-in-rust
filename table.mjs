@@ -15,7 +15,7 @@ async function readData() {
 
       const measurements = await fs.promises.readdir(`${dir}/${group}/${bench}`);
       for (const measurement of measurements) {
-        const json = await import(`${dir}/${group}/${bench}/${measurement}/new/estimates.json`, { assert: { type: "json" } });
+        const json = await import(`${dir}/${group}/${bench}/${measurement}/new/estimates.json`, { with: { type: "json" } });
         const duration_ms = json.default.mean.point_estimate / 1_000_000;
         data[group][bench][measurement] ||= { duration_ms };
       }
