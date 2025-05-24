@@ -38,7 +38,7 @@ swc_ecma_ast = "11.0.0"
 num_cpus = "1.16.0"
 criterion2  = { version = "3.0.0", default-features = false }
 rayon = "1.10.0"
-mimalloc = "0.1.46"
+mimalloc= { package = "mimalloc-safe", version = "0.1.52" }
 
 [features]
 codspeed = ["criterion2/codspeed"]
