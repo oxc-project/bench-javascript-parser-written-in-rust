@@ -100,6 +100,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "bytes"
+version = "1.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d71b6127be86fdcfddb610f7182ac57211d4b18a3e9c82eb2d17662f2227ad6a"
+
+[[package]]
+name = "bytes-str"
+version = "0.2.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "95ea3da8de225a11bcd5cee66b00eddcc7fd03e55bbe839fa4735d3281afb758"
+dependencies = [
+ "bytes",
+ "serde",
+]
+
+[[package]]
 name = "cast"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1158,13 +1174,14 @@ dependencies = [
 
 [[package]]
 name = "swc_common"
-version = "11.1.3"
+version = "12.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "44c332906667b0fa98622f19a19e43afa5aa63b652813f80645dd0f33eca1fbb"
+checksum = "84c376d04a9e50083b31962550590199c78a1c0f6b88e48ea9f46c95623074dc"
 dependencies = [
  "anyhow",
  "ast_node",
  "better_scoped_tls",
+ "bytes-str",
  "cfg-if",
  "either",
  "from_variant",
@@ -1185,9 +1202,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_ast"
-version = "11.0.0"
+version = "12.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2313360a518a37c4b9ee50030d189222927a3af902903cc70c50f6929e402dc"
+checksum = "82007a7a4fb30198baf82f79244aca929d9845e16fcf897179773e4ebfed20f5"
 dependencies = [
  "bitflags",
  "is-macro",
@@ -1205,9 +1222,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_lexer"
-version = "14.0.5"
+version = "15.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bb339d30ba6ee93da5d5638982faaa79586cd429fe331648abf42afa0eb0a7b5"
+checksum = "52114e9b522b43636f0034f1f6e63460777bde4c3a77c830c9b5724c2afcc4fc"
 dependencies = [
  "arrayvec",
  "bitflags",
@@ -1230,9 +1247,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "14.0.2"
+version = "15.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "60e07e6ecd47f748988902976d09c4022b1147772f88ad8a95852a20722ac7dc"
+checksum = "27e4002a6385182fa389f10832e3d3aa1a7cd6d865e9492fb8d4b5c399bbdb6b"
 dependencies = [
  "arrayvec",
  "bitflags",
