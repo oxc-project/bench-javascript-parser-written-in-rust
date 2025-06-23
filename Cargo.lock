@@ -39,6 +39,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7c02d123df017efcdfbd739ef81735b36c5ba83ec3c59c80a9d7ecc718f92e50"
 
 [[package]]
+name = "ascii"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d92bec98840b8f03a5ff5413de5293bfcd8bf96467cf5452609f939ec6f5de16"
+
+[[package]]
 name = "ast_node"
 version = "3.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -225,6 +231,15 @@ dependencies = [
  "rustversion",
  "ryu",
  "static_assertions",
+]
+
+[[package]]
+name = "cow-replace"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a6cab584c4b83b5b36f81a10bd15191fd77f70432d624787ee68ec64edd6d7ed"
+dependencies = [
+ "ascii",
 ]
 
 [[package]]
@@ -1269,12 +1284,14 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_lexer"
-version = "17.0.2"
+version = "17.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5bc377700d6e293f2c357660769625b97f9318b057d90ebc11c5f1e6d3b22729"
+checksum = "b4c284f6251b5e475549491d7e2b473b83f746e3c3ea49a02e87d9862c46563a"
 dependencies = [
  "arrayvec",
+ "ascii",
  "bitflags",
+ "cow-replace",
  "either",
  "new_debug_unreachable",
  "num-bigint",
@@ -1295,9 +1312,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "17.0.1"
+version = "17.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3ff5b5fbe4316b7d1272ac6f204a871f0d5785755d6a14ddf38e7fa8af73be30"
+checksum = "b3c0c2fc27655ed52958f39156af28407257c51c48551932d94a7e7bd973b2b1"
 dependencies = [
  "arrayvec",
  "bitflags",
