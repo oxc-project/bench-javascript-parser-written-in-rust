@@ -1236,9 +1236,9 @@ dependencies = [
 
 [[package]]
 name = "swc_common"
-version = "13.0.1"
+version = "13.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6865f71f363e63306cedec3f3cf1cb9e80acaa9229261ba2569467a19060c7c8"
+checksum = "fc28daa84b57762ecf28d8fdf6a3204ff04c8b8d98d35b9e8b9f56d4a7fafffa"
 dependencies = [
  "anyhow",
  "ast_node",
@@ -1284,9 +1284,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_lexer"
-version = "17.0.6"
+version = "17.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d8f318a247bc2c4662dc10dccd7a4f64834add015d216e977a58665b0aad9772"
+checksum = "8ff2f560591181601f15316838bd5872b19902e7b4605a08743c6cb3e853b3db"
 dependencies = [
  "arrayvec",
  "ascii",
@@ -1312,9 +1312,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "17.2.0"
+version = "17.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e24a33266ba7045b372043f7fc0674f3b3464875463874b85618f9c276bbd654"
+checksum = "821520cc73106140a379ba2614e67e35f9c5dff40f078fa791b16ed92e00053d"
 dependencies = [
  "arrayvec",
  "bitflags",
