@@ -4,21 +4,15 @@ on:
   workflow_dispatch:
   pull_request:
     types: [opened, synchronize]
-    paths:
-      - '**/*.rs'
-      - 'Cargo.lock'
-      - 'rust-toolchain.toml'
   push:
     branches:
       - main
-    paths:
-      - '**/*.rs'
-      - 'Cargo.lock'
-      - 'rust-toolchain.toml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: ${{ github.ref_name != 'main' }}
+
+permissions: {}
 
 jobs:
   benchmark:
