@@ -14,6 +14,7 @@ pub mod oxc {
 pub mod swc {
     use std::path::Path;
 
+    use swc_common::BytePos;
     use swc_ecma_ast::Module;
     use swc_ecma_parser::{EsSyntax, Parser, StringInput, Syntax, TsSyntax};
 
@@ -24,9 +25,9 @@ pub mod swc {
                 tsx: true,
                 ..TsSyntax::default()
             }),
-            _ => panic!("need to define syntax  for swc"),
+            _ => panic!("need to define syntax for swc"),
         };
-        let input = StringInput::new(source, Default::default(), Default::default());
+        let input = StringInput::new(source, BytePos(0), BytePos(source.len() as u32));
         Parser::new(syntax, input, None).parse_module().unwrap()
     }
 }
