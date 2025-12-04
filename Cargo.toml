@@ -31,6 +31,7 @@ oxc = "0.101.0"
 
 swc_ecma_parser = { version = "29.0.0", features = ["typescript"] }
 swc_ecma_ast = "19.0.0"
+swc_common = "18.0.1"
 
 # biome_js_parser = "0.5.6"
 # biome_js_syntax = "0.5.6"
