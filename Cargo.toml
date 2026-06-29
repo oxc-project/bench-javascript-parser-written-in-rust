@@ -27,7 +27,7 @@ doctest = false
 # doctest = false
 
 [dependencies]
-oxc = "0.137.0"
+oxc = "0.138.0"
 
 swc_ecma_parser = { version = "41.1.2", features = ["typescript"] }
 swc_ecma_ast = "25.0.0"
