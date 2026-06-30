@@ -1,7 +1,7 @@
 {
   "name": "bench-javascript-parser-written-in-rust",
   "version": "1.0.0",
-  "packageManager": "pnpm@11.4.0",
+  "packageManager": "pnpm@11.9.0",
   "private": true,
   "scripts": {
     "table": "node table.mjs"
