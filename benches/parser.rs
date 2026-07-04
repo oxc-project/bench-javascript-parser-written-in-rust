@@ -16,9 +16,7 @@ trait TheBencher {
     fn bench(g: &mut BenchmarkGroup<'_, WallTime>, path: &Path, source: &str) {
         let cpus = num_cpus::get_physical();
         let id = BenchmarkId::new(Self::ID, "single-thread");
-        g.bench_with_input(id, &source, |b, source| {
-            b.iter(|| Self::parse(path, source))
-        });
+        g.bench_with_input(id, &source, |b, source| b.iter(|| Self::parse(path, source)));
 
         let id = BenchmarkId::new(Self::ID, "no-drop");
         g.bench_with_input(id, &source, |b, source| {
