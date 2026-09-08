@@ -6681,7 +6681,11 @@ const makeSchemaLicenseKey = (args: { callback: (valid: boolean) => void; onSucc
         const parse = z.string().uuid().safeParse(data);
         if (parse.success) {
           args.callback(true);
-          const response = await fetch(`${CONSOLE_URL}/api/license?key=${data}`);
+          const response = await fetch(`${CONSOLE_URL}/api/license`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ key: data }),
+          });
           args.callback(false);
           const json = await response.json();
           if (!json.valid) {
