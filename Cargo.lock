@@ -1320,9 +1320,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "45.1.4"
+version = "45.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77d78327c5435b241272b5899b7a0013cc095334302d556b7ef6a55f5e44fc23"
+checksum = "d118573bf08de0117b405a008b0317e8f928e9af9943b98846ef705fe0b79f90"
 dependencies = [
  "bitflags",
  "compact_str 0.7.1",
