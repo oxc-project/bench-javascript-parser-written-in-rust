@@ -5314,11 +5314,14 @@ import { ErrorCode } from "@calcom/features/auth/lib/ErrorCode";
 import { useLocale } from "@calcom/lib/hooks/useLocale";
 import { Button, showToast } from "@calcom/ui";
 
+const CHANGE_PASSWORD_MIN_INTERVAL_MS = 3000;
+
 const ChangePasswordSection = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastAttemptAt, setLastAttemptAt] = useState(0);
   const { t, isLocaleReady } = useLocale();
   // hold display until the locale is loaded
   if (!isLocaleReady) {
@@ -5333,9 +5336,11 @@ const ChangePasswordSection = () => {
   async function changePasswordHandler(e: SyntheticEvent) {
     e.preventDefault();
 
-    if (isSubmitting) {
+    const now = Date.now();
+    if (isSubmitting || now - lastAttemptAt < CHANGE_PASSWORD_MIN_INTERVAL_MS) {
       return;
     }
+    setLastAttemptAt(now);
 
     setIsSubmitting(true);
     setErrorMessage(null);
