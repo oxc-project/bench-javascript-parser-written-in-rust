@@ -230,19 +230,6 @@ dependencies = [
 
 [[package]]
 name = "compact_str"
-version = "0.7.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f86b9c4c00838774a6d902ef931eff7470720c51d90c2e32cfe15dc304737b3f"
-dependencies = [
- "castaway",
- "cfg-if",
- "itoa",
- "ryu",
- "static_assertions",
-]
-
-[[package]]
-name = "compact_str"
 version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "79fcda08c33bb58b97008b2cdada6622500e949e060f5913361763121abd2416"
@@ -901,7 +888,7 @@ version = "0.154.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd97e39f49cecf328dffed6e7f5453c02cc939ce712d078225fc6cb7cce47ac7"
 dependencies = [
- "compact_str 0.10.0",
+ "compact_str",
  "oxc_allocator",
  "oxc_ast_macros",
  "oxc_estree",
@@ -914,7 +901,7 @@ version = "0.154.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "715ee1d0b6ec3aae7688b5a70bd72fd8fc67b3c489f8db670efcb970b5ea3e6a"
 dependencies = [
- "compact_str 0.10.0",
+ "compact_str",
  "hashbrown 0.17.1",
  "oxc_allocator",
  "oxc_estree",
@@ -1124,12 +1111,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
 
 [[package]]
-name = "ryu"
-version = "1.0.23"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9774ba4a74de5f7b1c1451ed6cd5285a32eddb5cccb8cc655a4e50009e06477f"
-
-[[package]]
 name = "scoped-tls"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1320,12 +1301,11 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "46.0.0"
+version = "46.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "897d50838c9d3ef3d7ecac0f0d898d149d47b713b108c5ef1e987cee14c807d5"
+checksum = "4fbe475109524dfb049ea4ecdbaae8c0995a049e48ff77da2977aae59a7d1373"
 dependencies = [
  "bitflags",
- "compact_str 0.7.1",
  "either",
  "num-bigint 0.4.8",
  "phf 0.11.3",
