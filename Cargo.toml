@@ -30,7 +30,7 @@ doctest = false
 oxc = "0.157.0"
 
 swc_ecma_parser = { version = "47.0.0", features = ["typescript"] }
-swc_ecma_ast = "30.0.0"
+swc_ecma_ast = "30.0.1"
 swc_common = "27.0.0"
 
 # biome_js_parser = "0.5.6"
