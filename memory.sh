@@ -4,7 +4,7 @@ for FILE in "./files/cal.com.tsx" "./files/typescript.js"
 do
   echo $FILE
 
-  for APP in oxc swc biome
+  for APP in oxc swc swc-next
   do
     hyperfine --warmup 10 --show-output "/usr/bin/time -al ./target/release/$APP $FILE > /dev/null" 2>&1 | \
       grep "maximum resident set size" | \

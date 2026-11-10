@@ -20,6 +20,12 @@ path = "src/swc.rs"
 test    = false
 doctest = false
 
+[[bin]]
+name = "swc-next"
+path = "src/swc_next.rs"
+test    = false
+doctest = false
+
 # [[bin]]
 # name = "biome"
 # path = "src/biome.rs"
@@ -33,13 +39,16 @@ swc_ecma_parser = { version = "47.0.0", features = ["typescript"] }
 swc_ecma_ast = "30.0.2"
 swc_common = "27.0.0"
 
+swc_next_allocator = "0.6.1"
+swc_next_ecma_parser = "0.6.1"
+
 # biome_js_parser = "0.5.6"
 # biome_js_syntax = "0.5.6"
 
-num_cpus = "1.16.0"
-criterion2  = { version = "3.0.0", default-features = false }
-rayon = "1.10.0"
-mimalloc= { package = "mimalloc-safe", version = "0.1.52" }
+num_cpus = "1.17.0"
+criterion2  = { version = "3.0.5", default-features = false }
+rayon = "1.12.0"
+mimalloc= { package = "mimalloc-safe", version = "0.1.70" }
 
 [features]
 codspeed = ["criterion2/codspeed"]

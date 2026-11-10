@@ -58,6 +58,18 @@ impl TheBencher for SwcBencher {
     }
 }
 
+struct SwcNextBencher;
+
+impl TheBencher for SwcNextBencher {
+    type ParseOutput = swc_next_allocator::Allocator;
+
+    const ID: &'static str = "swc-next";
+
+    fn parse(path: &Path, source: &str) -> Self::ParseOutput {
+        bench_parser::swc_next::parse(path, source)
+    }
+}
+
 // struct BiomeBencher;
 
 // impl TheBencher for BiomeBencher {
@@ -78,6 +90,7 @@ fn parser_benchmark(c: &mut Criterion) {
         let mut g = c.benchmark_group(filename);
         OxcBencher::bench(&mut g, &path, &source);
         SwcBencher::bench(&mut g, &path, &source);
+        SwcNextBencher::bench(&mut g, &path, &source);
         // BiomeBencher::bench(&mut g, &path, &source);
         g.finish();
     }

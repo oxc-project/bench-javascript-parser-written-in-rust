@@ -29,6 +29,31 @@ pub mod swc {
     }
 }
 
+pub mod swc_next {
+    use std::path::Path;
+
+    use swc_next_allocator::Allocator;
+    use swc_next_ecma_parser::{Lang, NoTokenParserConfig, Options, Parser};
+
+    pub fn parse(path: &Path, source: &str) -> Allocator {
+        let allocator = Allocator::new();
+        let lang = match path.extension().unwrap().to_str().unwrap() {
+            "js" => Lang::Js,
+            "tsx" => Lang::Tsx,
+            _ => panic!("need to define syntax for swc-next"),
+        };
+        let result = Parser::init(
+            &allocator,
+            source,
+            Options { lang, ..Options::default() },
+            NoTokenParserConfig,
+        )
+        .parse();
+        assert!(result.diagnostics.is_empty(), "{:?}", result.diagnostics);
+        allocator
+    }
+}
+
 // pub mod biome {
 // use std::path::Path;
 
