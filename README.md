@@ -6,7 +6,7 @@ The active benchmarks compare Oxc, SWC and [SWC Next](https://github.com/swc-pro
 
 ## Summary
 
-SWC Next was fastest in all six CPU cases in the latest run. In single-thread mode, Oxc took 1.36–1.75x as long and SWC took 3.32–4.07x as long as SWC Next.
+SWC Next was fastest in all six CPU cases in the latest run. In single-thread mode, Oxc took 1.20–1.55x as long and SWC took 3.36–4.30x as long as SWC Next.
 
 ## CPU
 
@@ -19,9 +19,9 @@ SWC Next was fastest in all six CPU cases in the latest run. In single-thread mo
 
 Codspeed measures performance by cpu instructions.
 
-### MacBook Pro M3 Max, 14 cores (2026-11-10)
+### MacBook Pro M3 Max, 14 cores (2026-11-17)
 
-Measured on macOS 27.0.1 with Rust 1.99.1, Oxc 0.158.0, `swc_ecma_parser` 47.0.0, SWC Next 0.6.1, `mimalloc-safe` 0.1.70 and Criterion2 3.0.5.
+Measured on macOS 27.0.1 with Rust 1.100.0, Oxc 0.159.0, `swc_ecma_parser` 47.0.2, SWC Next 0.7.0, `mimalloc-safe` 0.1.70 and Criterion2 3.0.5.
 The run uses 100 samples per case; parallel iterations parse 14 copies of the fixture.
 Values are mean elapsed times, and ratios compare each parser with the fastest parser in that row.
 
@@ -29,17 +29,17 @@ Values are mean elapsed times, and ratios compare each parser with the fastest p
 
 |               | oxc              | swc               | swc-next         |
 | ------------- | ---------------- | ----------------- | ---------------- |
-| no-drop       | `3.1 ms` (1.72x) | `6.3 ms` (3.50x)  | `1.8 ms` (1.00x) |
-| parallel      | `5.4 ms` (1.60x) | `15.2 ms` (4.53x) | `3.4 ms` (1.00x) |
-| single-thread | `3.1 ms` (1.75x) | `7.2 ms` (4.07x)  | `1.8 ms` (1.00x) |
+| no-drop       | `2.8 ms` (1.56x) | `6.3 ms` (3.55x)  | `1.8 ms` (1.00x) |
+| parallel      | `5.4 ms` (1.66x) | `15.4 ms` (4.71x) | `3.3 ms` (1.00x) |
+| single-thread | `2.8 ms` (1.55x) | `7.6 ms` (4.30x)  | `1.8 ms` (1.00x) |
 
 #### typescript.js
 
 |               | oxc               | swc                | swc-next          |
 | ------------- | ----------------- | ------------------ | ----------------- |
-| no-drop       | `20.1 ms` (1.38x) | `40.0 ms` (2.75x)  | `14.6 ms` (1.00x) |
-| parallel      | `30.7 ms` (1.33x) | `107.1 ms` (4.64x) | `23.1 ms` (1.00x) |
-| single-thread | `19.8 ms` (1.36x) | `48.3 ms` (3.32x)  | `14.5 ms` (1.00x) |
+| no-drop       | `17.9 ms` (1.25x) | `39.8 ms` (2.77x)  | `14.4 ms` (1.00x) |
+| parallel      | `29.0 ms` (1.32x) | `106.0 ms` (4.83x) | `21.9 ms` (1.00x) |
+| single-thread | `17.5 ms` (1.20x) | `48.8 ms` (3.36x)  | `14.5 ms` (1.00x) |
 
 ### Run benchmark locally
 
@@ -60,14 +60,14 @@ pnpm run table
 
 ## Maximum Resident Set Size
 
-### MacBook Pro M3 Max (2026-11-10)
+### MacBook Pro M3 Max (2026-11-17)
 
 Measured with `./memory.sh` on the same machine as the latest CPU run. Values are mean peak resident set sizes in decimal MB; ratios compare each parser with the lowest value in that row.
 
 | Fixture | oxc | swc | swc-next |
 | --- | --- | --- | --- |
-| cal.com.tsx | `12.1 MB` (1.44x) | `16.7 MB` (1.99x) | `8.4 MB` (1.00x) |
-| typescript.js | `56.8 MB` (1.53x) | `92.0 MB` (2.48x) | `37.1 MB` (1.00x) |
+| cal.com.tsx | `11.6 MB` (1.47x) | `16.6 MB` (2.10x) | `7.9 MB` (1.00x) |
+| typescript.js | `53.3 MB` (1.50x) | `92.0 MB` (2.58x) | `35.6 MB` (1.00x) |
 
 ## Setup
 
@@ -97,7 +97,7 @@ group.bench_with_input(id, &source, |b, source| {
 ### no-drop
 
 This uses the [`iter_with_large_drop`](https://docs.rs/criterion/0.5.1/criterion/struct.Bencher.html#method.iter_with_large_drop) function, which does not take AST drop time into account.
-In the latest `typescript.js` run, SWC takes 48.3ms with dropping versus 40.0ms without dropping.
+In the latest `typescript.js` run, SWC takes 48.8ms with dropping versus 39.8ms without dropping.
 
 AST drop time can become a bottleneck in applications such as as bundler,
 where there are a few thousands of files need to be parsed.
