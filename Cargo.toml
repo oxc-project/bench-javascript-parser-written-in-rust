@@ -35,9 +35,9 @@ doctest = false
 [dependencies]
 oxc = "0.159.0"
 
-swc_ecma_parser = { version = "47.1.0", features = ["typescript"] }
-swc_ecma_ast = "30.0.2"
-swc_common = "27.0.0"
+swc_ecma_parser = { version = "48.0.0", features = ["typescript"] }
+swc_ecma_ast = "31.0.0"
+swc_common = "28.0.0"
 
 swc_next_allocator = "0.7.0"
 swc_next_ecma_parser = "0.7.0"
