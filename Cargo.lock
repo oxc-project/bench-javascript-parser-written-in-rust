@@ -1301,9 +1301,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "48.0.0"
+version = "48.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41eaae0c6581b284ce85de2a735f345e1c1145f399104958d734d0cfb5d8e409"
+checksum = "1aeb93c8091af3f8347661a835cfb8f2e76d7da25b3e7d8c7341692c4dea6525"
 dependencies = [
  "bitflags",
  "either",
@@ -1343,9 +1343,9 @@ dependencies = [
 
 [[package]]
 name = "swc_next_allocator"
-version = "0.8.0"
+version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0cbea7a696f89e00d39ca5c50eb30276016caa4e0972e0707fe06359a7079563"
+checksum = "2754f06209be12026c2608cb4eb452c0d5c7aecad1ba07784c0004af616238ab"
 dependencies = [
  "allocator-api2",
  "bumpalo",
@@ -1380,9 +1380,9 @@ dependencies = [
 
 [[package]]
 name = "swc_next_ecma_parser"
-version = "0.8.0"
+version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3b231392996553522e0c3c71881a23324dbc6429e7a5e9e49148ddf5fcf1f2e7"
+checksum = "cff4d1630fea0178225d23484bd8a1f8dbd9d1ffd68a1fa919c69e217f8ac650"
 dependencies = [
  "bitflags",
  "indexmap",
